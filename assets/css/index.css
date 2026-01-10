@@ -298,10 +298,24 @@ body.homepage { background-color: white; background-image: none; }
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.15s ease, visibility 0.15s ease;
-    z-index: 1001;
+    z-index: 1300; /* AUMENTADO: Debe estar ENCIMA del banner blanco (z-index: 1200) */
     border: none;
     font-family: Arial, sans-serif;
 }
+
+/* IMPORTANTE: Mostrar submenú cuando está activo */
+.desktop-submenu.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.desktop-nav-item.active .desktop-submenu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
 
 .desktop-submenu::before {
     content: '';
@@ -1881,4 +1895,106 @@ body.show-spd .desktop-navbar {
     #spd-section {
         padding-top: 93px; /* 64px del header + 29px del banner verde */
     }
+}
+
+/* ==================== CORRECCIÓN DEL FOOTER ==================== */
+/* Asegurar que el footer NO aparezca encima de la página */
+#main-footer {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: auto;
+}
+
+/* Ocultar footer cuando se muestra SPD */
+body.show-spd #main-footer {
+    display: none !important;
+}
+
+/* Ocultar footer cuando se muestran otras secciones */
+body.show-directiva #main-footer,
+body.show-credenciales #main-footer {
+    display: none !important;
+}
+
+/* Mostrar footer solo en homepage */
+body:not(.show-spd):not(.show-directiva):not(.show-credenciales) #main-footer {
+    display: block !important;
+}
+
+/* ==================== HOMEPAGE VISIBLE POR DEFECTO ==================== */
+#homepage-section {
+    display: block !important; /* Visible por defecto */
+}
+
+#homepage-content-wrapper {
+    display: block !important; /* Visible por defecto */
+}
+
+/* Ocultar homepage cuando se muestran otras secciones */
+body.show-spd #homepage-section,
+body.show-spd #homepage-content-wrapper,
+body.show-directiva #homepage-section,
+body.show-directiva #homepage-content-wrapper,
+body.show-credenciales #homepage-section,
+body.show-credenciales #homepage-content-wrapper {
+    display: none !important;
+}
+
+/* ==================== SECCIONES CON FONDO ==================== */
+/* Directivas - Fondo blanco con padding */
+#contenido {
+    background: white !important;
+    min-height: 100vh !important;
+    padding: 80px 20px 40px 20px !important;
+}
+
+#main-section {
+    background: white !important;
+    padding: 20px !important;
+}
+
+/* Credenciales - Fondo blanco con padding */
+#credenciales-section {
+    background: white !important;
+    min-height: 100vh !important;
+    padding: 80px 20px 40px 20px !important;
+}
+
+/* ==================== BOTONES DE REGRESO ==================== */
+/* Mostrar botón de regreso en directivas */
+body.show-directiva #credenciales-arrow-back-btn {
+    display: block !important;
+    position: fixed !important;
+    top: 80px !important;
+    left: 20px !important;
+    z-index: 1000 !important;
+    background: #0071e3 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+}
+
+body.show-directiva #credenciales-arrow-back-btn:hover {
+    background: #005bb5 !important;
+}
+
+/* Mostrar botón de regreso en credenciales */
+body.show-credenciales #credenciales-arrow-back-btn {
+    display: block !important;
+    position: fixed !important;
+    top: 80px !important;
+    left: 20px !important;
+    z-index: 1000 !important;
+    background: #0071e3 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+}
+
+body.show-credenciales #credenciales-arrow-back-btn:hover {
+    background: #005bb5 !important;
 }
