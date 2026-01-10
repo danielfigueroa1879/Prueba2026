@@ -31,938 +31,7 @@
     <link rel="preload" href="assets/images/foto%20(1).webp" as="image" fetchpriority="high">
     <link rel="preload" href="assets/css/styles.css" as="style">
     <link rel="stylesheet" href="assets/css/carousel.css">
-        <style>
-html {
-    scroll-behavior: smooth;
-}
-.homepage-section { background-image: url('assets/images/foto%20(1).webp'); background-size: cover; background-position: center center; min-height: 100vh; transition: background-image 5.5s ease-in-out; }
-body.homepage { background-color: white; background-image: none; }
-.pwa-install-banner { position: fixed; top: 64px; left: 0; right: 0; background-color: #f1f5f9; border-bottom: 2px solid #3b82f6; padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 1100; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); transition: all 0.5s ease-in-out; transform: translateY(-100%); opacity: 0; pointer-events: none; }
-.pwa-install-banner.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
-.submenu-arrow { transition: transform 0.3s ease; }
-.has-submenu.submenu-open .submenu-arrow { transform: rotate(90deg); }
-#suspension-notice {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background-color: rgba(251, 192, 45, 0.83);
-    color: white;
-    text-align: center;
-    padding: 12px 20px;
-    font-weight: 600;
-    font-size: 16px;
-    z-index: 1300;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    backdrop-filter: blur(15px);
-}
-#suspension-notice.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-#suspension-notice.hide {
-    opacity: 0;
-    transform: translateY(-100%);
-}
-@media (max-width: 768px) {
-    #suspension-notice {
-        font-size: 17px;
-        padding: 8px 13px;
-    }
-}
-@media (min-width: 1024px) {
-    .asesor-megamenu {
-        border-radius: 0 !important;
-    }
-}
-
-/* ===== BOTÓN CERRAR MENÚ MÓVIL ===== */
-.dropdown-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.close-mobile-menu-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    transition: background-color 0.2s;
-}
-
-.close-mobile-menu-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.close-mobile-menu-btn svg {
-    stroke: #374151;
-}
-
-
-/* ===== BARRA DE NAVEGACIÓN VERDE (SOLO PC) ===== */
-.desktop-navbar {
-    display: none;
-    background: #237c4e;
-    box-shadow: 0 4px 12px rgba(35, 124, 78, 0.3);
-    border-bottom: none;
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    z-index: 90;
-    font-family: Arial, sans-serif;
-    height: 29px;
-    max-height: 29px;
-}
-
-/* ===== REGLAS PARA MÓVIL: Mostrar hamburguesa, ocultar barra verde ===== */
-@media (max-width: 1023px) {
-    .desktop-navbar {
-        display: none !important;
-    }
-    #mobile-menu-btn {
-        display: block !important;
-    }
-}
-
-/* ===== REGLAS PARA PC: Ocultar hamburguesa, mostrar barra verde ===== */
-@media (min-width: 1024px) {
-    .desktop-navbar {
-        display: block !important;
-    }
-    #mobile-menu-btn {
-        display: none !important;
-    }
-    
-    /* Foto pantalla completa */
-    .homepage-section {
-        margin-top: 28px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        min-height: 100vh !important;
-        height: 100vh !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important; /* Centra los botones */
-        position: relative !important;
-    }
-    
-    .homepage-section > div.relative.z-10:first-of-type {
-        position: absolute !important;
-        top: 50px !important; /* Subido aún más en PC */
-        left: 0 !important;
-        right: 0 !important;
-        padding: 0 1rem !important;
-        z-index: 20 !important;
-    }
-    
-    /* Margen negativo ajustado para eliminar espacio en blanco */
-    #homepage-content-wrapper {
-        padding-top: 0 !important;
-        margin-top: -160px !important;     /* Aumentado para subir la sección y eliminar el blanco */
-        position: relative;
-        z-index: 10;
-    }
-    
-    /* ===== SOLUCIÓN REFORZADA: Ocultar homepage cuando se muestra directiva o credenciales ===== */
-    body.show-directiva #homepage-section,
-    body.show-credenciales #homepage-section {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-    }
-    
-    body.show-directiva #homepage-content-wrapper,
-    body.show-credenciales #homepage-content-wrapper {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-    }
-    
-    /* Asegurar que contenido de directiva/credenciales se muestre correctamente */
-    body.show-directiva #contenido,
-    body.show-credenciales #contenido {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        left: auto !important;
-    }
-    
-    body.show-directiva #main-section,
-    body.show-credenciales #credenciales-section {
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    .carousel-container.mt-16 {
-        margin-top: 0 !important;
-    }
-    
-    /* TRAMITES PRINCIPALES - NO MODIFICAR */
-    #tramites-principales {
-        padding-top: 2rem !important;
-        margin-top: 0 !important;
-    }
-    #tramites-principales.py-16,
-    #tramites-principales.py-24,
-    #tramites-principales.md\:py-24 {
-        padding-top: 1rem !important;
-        padding-bottom: 2rem !important;
-    }
-    #tramites-principales > div {
-        padding-top: 0 !important;
-    }
-    #tramites-principales .text-center {
-        margin-top: 0 !important;
-        padding-top: 1.5rem !important;
-    }
-    #tramites-principales .text-center > div {
-        margin-top: 0 !important;
-        margin-bottom: 0.5rem !important;
-    }
-    #tramites-principales .text-center p {
-        margin-top: 0.5rem !important;
-    }
-    #tramites-principales .carousel-card {
-        padding: 1rem !important;
-    }
-    #tramites-principales .carousel-container {
-        margin-top: 1.0rem !important;
-    }
-}
-
-.desktop-navbar-container {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.5rem;
-    height: 30px;
-    max-height: 30px;
-    overflow-x: auto;
-    overflow-y: visible;
-}
-
-.desktop-navbar-container::-webkit-scrollbar {
-    height: 3px;
-}
-
-.desktop-navbar-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.desktop-navbar-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-}
-
-.desktop-nav-items {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    flex-wrap: nowrap;
-    justify-content: center;
-    white-space: nowrap;
-}
-
-.desktop-nav-item {
-    position: relative;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    padding: 0px 10px 1px 10px;
-    border-radius: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-    background: transparent;
-    border: none;
-    flex-shrink: 0;
-    max-height: 30px;
-}
-
-.desktop-nav-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.desktop-chevron {
-    width: 11px;
-    height: 11px;
-    stroke-width: 2.5;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.desktop-nav-item:hover .desktop-chevron {
-    transform: rotate(90deg);
-}
-
-.desktop-submenu {
-    position: fixed;
-    background: #237c4e;
-    border-radius: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    padding: 0.4rem;
-    min-width: 220px;
-    max-width: 320px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.15s ease, visibility 0.15s ease;
-    z-index: 1001;
-    border: none;
-    font-family: Arial, sans-serif;
-}
-
-.desktop-submenu::before {
-    content: '';
-    position: absolute;
-    top: -7px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #237c4e;
-    z-index: 1;
-}
-
-.desktop-submenu-item {
-    display: block;
-    width: 100%;
-    padding: 6px 8px;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: left;
-    border-radius: 0;
-    transition: all 0.2s ease;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 3px;
-    max-height: 28px;
-}
-
-.desktop-submenu-item:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateX(3px);
-}
-
-.desktop-submenu-title {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 15px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 4px 8px;
-    margin-bottom: 3px;
-    opacity: 0.95;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.desktop-submenu-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 4px 0;
-}
-
-.desktop-submenu.mega {
-    min-width: 360px;
-    max-width: 380px;
-    max-height: 420px;
-    overflow-y: auto;
-    padding-left: 0px;
-}
-
-.desktop-submenu.mega::-webkit-scrollbar {
-    width: 5px;
-}
-
-.desktop-submenu.mega::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.desktop-submenu.mega::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-}
-
-/* Estilos para submenús laterales (Normativa) */
-.desktop-submenu-container {
-    position: relative;
-    width: 100%;
-}
-
-.desktop-submenu-side {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background: #237c4e;
-    border-radius: 0px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    padding: 0.4rem;
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 1002;
-    margin-left: 2px;
-}
-
-.desktop-submenu-item-with-side:hover > .desktop-submenu-side {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.desktop-submenu-item-with-side {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.megamenu-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-.megamenu-logo {
-    width: 50px;
-    height: auto;
-    margin-right: 1rem;
-}
-.section-card-hover {
-    transition: all 0.3s ease;
-}
-.section-card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-.gradient-card {
-    background: linear-gradient(135deg, var(--from-color) 0%, var(--to-color) 100%);
-}
-.scroll-container {
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0,0,0,0.1) transparent;
-} 
-.scroll-container::-webkit-scrollbar {
-    width: 6px;
-}
-.scroll-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-.scroll-container::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.1);
-    border-radius: 3px;
-}
-.card-float-glow {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-float-glow:hover {
-    transform: translateY(-5px);
-}
-  .hover-glow-blue:hover {
-    box-shadow: 0 0 15px 3px rgba(96, 165, 250, 0.4); 
-}
-.hover-glow-indigo:hover {
-    box-shadow: 0 0 15px 3px rgba(129, 140, 248, 0.4); 
-}
-.hover-glow-green:hover {
-    box-shadow: 0 0 15px 3px rgba(74, 222, 128, 0.4); 
-}
-.hover-glow-yellow:hover {
-    box-shadow: 0 0 15px 3px rgba(250, 204, 21, 0.4); 
-}
-
-.text-spd-alternante {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-.text-spd-alternante .texto-spd {
-    opacity: 1;
-    transition: opacity 0.6s ease-in-out;
-    display: block;
-    text-align: center;
-    line-height: 1.3;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-}
-.text-spd-alternante .texto-spd.fade-out {
-    opacity: 0;
-}
-
-@media (max-width: 639px) {
-    .homepage-btn {
-        width: 100% !important;
-        max-width: 390px !important;
-        min-width: 210px !important;
-        height: 48px !important;
-        min-height: 48px !important;
-        max-height: 48px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 1rem !important;
-        overflow: hidden !important;
-        box-sizing: border-box !important;
-    }
-    .text-spd-alternante .texto-spd {
-        font-size: 0.75rem;
-        white-space: normal;
-        line-height: 1.2;
-    }
-}
-
-@media (min-width: 640px) {
-    .homepage-btn {
-        width: 230px !important;
-        min-width: 230px !important;
-        max-width: 230px !important;
-        height: 48px !important;
-        min-height: 48px !important;
-        max-height: 48px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 1rem !important;
-        overflow: hidden !important;
-        box-sizing: border-box !important;
-    }
-    .text-spd-alternante .texto-spd {
-        font-size: 0.8rem;
-        white-space: normal;
-        line-height: 1.2;
-    }
-}
-
-.modal-requisitos-componentes {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: 9999 !important;
-    overflow-y: auto;
-    padding: 1rem;
-    backdrop-filter: blur(8px);
-}
-
-.modal-requisitos-componentes.active {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
-/* ===== OCULTAR BANNER VERDE CUANDO EL MODAL ESTÁ ACTIVO ===== */
-body:has(.modal-requisitos-componentes.active) .desktop-navbar {
-    display: none !important;
-}
-
-/* Alternativa para navegadores sin soporte de :has() */
-.modal-requisitos-componentes.active ~ * .desktop-navbar,
-.desktop-navbar.hide-on-modal {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-.modal-content-componentes {
-    background: white;
-    border-radius: 1rem;
-    max-width: 900px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    animation: slideDownModal 0.3s ease-out;
-}
-
-@keyframes slideDownModal {
-    from {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.modal-header-componentes {
-    background: linear-gradient(135deg, #146314 0%, #0d4a0d 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 1rem 1rem 0 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
-
-.modal-title-componentes {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    flex: 1;
-}
-
-.modal-body-componentes {
-    padding: 1.5rem;
-}
-
-.btn-cerrar-componentes {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 0.875rem;
-    flex-shrink: 0;
-}
-
-.btn-cerrar-componentes:hover {
-    background: white;
-    color: #146314;
-}
-
-.requisito-section-componentes {
-    background: #f8fafc;
-    border-left: 4px solid #146314;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
-}
-
-.requisito-item-componentes {
-    background: white;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    align-items: start;
-    gap: 0.75rem;
-}
-
-.requisito-numero-componentes {
-    background: #146314;
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-.badge-componentes {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.badge-ley-componentes {
-    background: #dbeafe;
-    color: #1e40af;
-}
-
-.badge-decreto-componentes {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-@media (max-width: 768px) {
-    .modal-requisitos-componentes {
-        padding: 0.5rem;
-    }
-    
-    .modal-content-componentes {
-        margin: 0;
-        max-height: 96vh;
-        border-radius: 0.75rem;
-    }
-    
-    .modal-header-componentes {
-        padding: 1rem;
-        border-radius: 0.75rem 0.75rem 0 0;
-    }
-    
-    .modal-title-componentes {
-        font-size: 1.125rem;
-        line-height: 1.3;
-    }
-    
-    .modal-body-componentes {
-        padding: 1rem;
-        font-size: 0.875rem;
-    }
-    
-    .requisito-section-componentes {
-        padding: 0.875rem;
-        margin-bottom: 0.875rem;
-    }
-    
-    .requisito-section-componentes h3 {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .requisito-item-componentes {
-        padding: 0.625rem;
-        gap: 0.625rem;
-        margin: 0.375rem 0;
-    }
-    
-    .requisito-numero-componentes {
-        width: 22px;
-        height: 22px;
-        font-size: 0.7rem;
-    }
-    
-    .btn-cerrar-componentes {
-        padding: 0.375rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .badge-componentes {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.625rem;
-    }
-}
-
-@media (max-width: 375px) {
-    .modal-requisitos-componentes {
-        padding: 0.25rem;
-    }
-    
-    .modal-content-componentes {
-        border-radius: 0.5rem;
-        max-height: 98vh;
-    }
-    
-    .modal-header-componentes {
-        padding: 0.875rem;
-        border-radius: 0.5rem 0.5rem 0 0;
-    }
-    
-    .modal-title-componentes {
-        font-size: 1rem;
-        line-height: 1.25;
-    }
-    
-    .modal-body-componentes {
-        padding: 0.875rem;
-        font-size: 0.8125rem;
-    }
-    
-    .requisito-section-componentes {
-        padding: 0.75rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .requisito-section-componentes h3 {
-        font-size: 0.9375rem;
-        margin-bottom: 0.625rem;
-    }
-    
-    .requisito-item-componentes {
-        padding: 0.5rem;
-        gap: 0.5rem;
-        margin: 0.3rem 0;
-        font-size: 0.8125rem;
-    }
-    
-    .requisito-numero-componentes {
-        width: 20px;
-        height: 20px;
-        font-size: 0.65rem;
-    }
-    
-    .btn-cerrar-componentes {
-        padding: 0.3rem 0.875rem;
-        font-size: 0.75rem;
-    }
-    
-    .badge-componentes {
-        font-size: 0.65rem;
-        padding: 0.175rem 0.5rem;
-    }
-}
-
-.btn-pdf-modal {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #dc2626;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: none;
-    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
-}
-.btn-pdf-modal:hover {
-    background-color: #b91c1c !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5) !important;
-}
-.btn-pdf-modal:active {
-    transform: translateY(0);
-}
-.btn-pdf-modal svg {
-    width: 1.25rem;
-    height: 1.25rem;
-}
-
-.pdf-download-animation {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
-    pointer-events: none;
-    opacity: 0;
-}
-
-.pdf-download-animation.active {
-    animation: pdfBounce 4.4s ease-in forwards;
-}
-
-.pdf-icon-animated {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 40px rgba(220, 38, 38, 0.5);
-}
-
-.pdf-icon-animated svg {
-    width: 50px;
-    height: 50px;
-    color: white;
-}
-@keyframes pdfBounce {
-0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-}
-5% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-15% {
-    opacity: 1;
-    transform: translate(-50%, -130%) scale(1.15);
-}
-25% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-26% {
-    opacity: 1;
-    transform: translate(-30%, -100%) scale(0.9);
-}
-28% {
-    opacity: 1;
-    transform: translate(-10%, -130%) scale(0.8);
-}
-32% {
-    opacity: 0.9;
-    transform: translate(15%, -160%) scale(0.7);
-}
-38% {
-    opacity: 0.7;
-    transform: translate(35%, -200%) scale(0.55);
-}
-45% {
-    opacity: 0.4;
-    transform: translate(50%, -250%) scale(0.4);
-}
-62% {
-    opacity: 0.2;
-    transform: translate(60%, -300%) scale(0.25);
-}
-100% {
-    opacity: 0;
-    transform: translate(70%, -350%) scale(0.1);
-}
-}
-@media (max-width: 640px) {
-    .pdf-icon-animated {
-        width: 70px;
-        height: 70px;
-    }
-    .pdf-icon-animated svg {
-        width: 40px;
-        height: 40px;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="assets/css/index.css">
 
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/images/icon-192x192.webp">
@@ -1175,90 +244,6 @@ body:has(.modal-requisitos-componentes.active) .desktop-navbar {
             </div>
         </div>
     </nav>
-    
-    <script>
-    // Manejar submenús de la barra verde
-    document.addEventListener('DOMContentLoaded', function() {
-        const navItems = document.querySelectorAll('.desktop-nav-item');
-        let closeTimeout;
-        let currentOpenSubmenu = null;
-        
-        // Función para cerrar todos los submenús
-        function closeAllSubmenus() {
-            navItems.forEach(item => {
-                const submenu = item.querySelector('.desktop-submenu');
-                if (submenu) {
-                    submenu.style.opacity = '0';
-                    submenu.style.visibility = 'hidden';
-                    submenu.style.pointerEvents = 'none';
-                }
-            });
-            currentOpenSubmenu = null;
-        }
-        
-        navItems.forEach(item => {
-            const submenu = item.querySelector('.desktop-submenu');
-            if (!submenu) return;
-            
-            // Posicionar el submenú
-            function positionSubmenu() {
-                const rect = item.getBoundingClientRect();
-                const submenuWidth = submenu.offsetWidth;
-                const left = rect.left + (rect.width / 2) - (submenuWidth / 2);
-                
-                submenu.style.left = left + 'px';
-                submenu.style.top = '98px';
-            }
-            
-            // Abrir submenú
-            function openSubmenu() {
-                clearTimeout(closeTimeout);
-                // Cerrar otros submenús primero
-                if (currentOpenSubmenu && currentOpenSubmenu !== submenu) {
-                    currentOpenSubmenu.style.opacity = '0';
-                    currentOpenSubmenu.style.visibility = 'hidden';
-                    currentOpenSubmenu.style.pointerEvents = 'none';
-                }
-                positionSubmenu();
-                submenu.style.opacity = '1';
-                submenu.style.visibility = 'visible';
-                submenu.style.pointerEvents = 'auto';
-                currentOpenSubmenu = submenu;
-            }
-            
-            // Cerrar submenú con retraso mínimo
-            function closeSubmenu() {
-                closeTimeout = setTimeout(() => {
-                    submenu.style.opacity = '0';
-                    submenu.style.visibility = 'hidden';
-                    submenu.style.pointerEvents = 'none';
-                    if (currentOpenSubmenu === submenu) {
-                        currentOpenSubmenu = null;
-                    }
-                }, 100);
-            }
-            
-            // Eventos para el item del menú
-            item.addEventListener('mouseenter', openSubmenu);
-            item.addEventListener('mouseleave', closeSubmenu);
-            
-            // Eventos para el submenú
-            submenu.addEventListener('mouseenter', () => {
-                clearTimeout(closeTimeout);
-            });
-            submenu.addEventListener('mouseleave', closeSubmenu);
-        });
-        
-        // Cerrar todos los submenús si el mouse sale de la barra de navegación
-        const navbar = document.querySelector('.desktop-navbar');
-        if (navbar) {
-            navbar.addEventListener('mouseleave', () => {
-                clearTimeout(closeTimeout);
-                closeTimeout = setTimeout(closeAllSubmenus, 100);
-            });
-        }
-    });
-    </script>
     
     <!-- Menú desplegable para móvil y ahora también para PC -->
     <div id="mobile-dropdown" class="mobile-dropdown hidden">
@@ -2377,7 +1362,7 @@ body:has(.modal-requisitos-componentes.active) .desktop-navbar {
         <div class="max-w-7xl mx-auto py-8 px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div><h3 class="text-lg font-semibold text-white">O.S.10 Coquimbo</h3><p class="mt-2 text-sm">Prefectura de Coquimbo.</p></div>
-                <div><h3 class="text-lg font-semibold text-white">Contacto</h3><ul class="mt-4 space-y-2 text-sm"><li><a href="tel:+56512651024" class="hover:text-white">+56 51 265 1024</a></li><li><a href="mailto:os10.coquimbo@carabineros.cl" class="hover:text-white">os10.coquimbo@carabineros.cl</a></li><li><a href="mailto:os10coquimbo@gmail.com" class="hover:text-white">os10coquimbo@gmail.com</a></li></ul></div>
+                <div><h3 class="text-lg font-semibold text-white">Contacto</h3><ul class="mt-4 space-y-2 text-sm"><li><a href="tel:+56512651024" class="hover:text-white">+56 51 265 1024</a></li><li><a href="/cdn-cgi/l/email-protection#a9c6da989987cac6d8dcc0c4cbc6e9cac8dbc8cbc0c7ccdbc6da87cac5" class="hover:text-white"><span class="__cf_email__" data-cfemail="b8d7cb898896dbd7c9cdd1d5dad7f8dbd9cad9dad1d6ddcad7cb96dbd4">[email&#160;protected]</span></a></li><li><a href="/cdn-cgi/l/email-protection#d6b9a5e7e6b5b9a7a3bfbbb4b996b1bbb7bfbaf8b5b9bb" class="hover:text-white"><span class="__cf_email__" data-cfemail="3659450706555947435f5b545976515b575f5a1855595b">[email&#160;protected]</span></a></li></ul></div>
             </div>
             <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm">
                 <p>© 2026 Prefectura de Coquimbo, O.S.10. Todos los derechos reservados.</p>
@@ -2423,7 +1408,11 @@ body:has(.modal-requisitos-componentes.active) .desktop-navbar {
     </button>
     <div id="chat-backdrop" class="hidden fixed inset-0 bg-black/60 z-40"></div>
     <button id="back-to-top" class="hidden fixed bottom-5 right-5"></button>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/inicio.js?v=4" defer></script>
+    
+    <!-- Script principal con funciones de navegación -->
+    <script src="assets/js/index.js"></script>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/inicio.js?v=4" defer></script>
     <script src="assets/js/carousel.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <script type="module">
@@ -2455,346 +1444,17 @@ body:has(.modal-requisitos-componentes.active) .desktop-navbar {
     </script>
     <script src="./rules/chatbot-rules.js"></script>
     <script src="assets/js/chatbot.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js').then(reg => console.log('✅ SW registered'), err => console.error('❌ SW registration failed', err));
-            });
-        }
-    </script>
     
     <!-- Script para menú hamburguesa móvil y manejo de banner PWA -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('🍔 Inicializando menú hamburguesa...');
-        
-        // ===== MANEJO DEL BANNER PWA =====
-        const pwaBanner = document.getElementById('pwa-install-banner');
-        const closeInstallBtn = document.getElementById('close-install-banner');
-        const installBtn = document.getElementById('install-button');
-        
-        // Función para ocultar completamente el banner PWA
-        function hidePWABanner() {
-            if (pwaBanner) {
-                console.log('🚫 Ocultando banner PWA completamente');
-                pwaBanner.classList.remove('show');
-                pwaBanner.style.display = 'none'; // Ocultar completamente del DOM
-                pwaBanner.style.pointerEvents = 'none';
-            }
-        }
-        
-        // Evento para cerrar el banner PWA
-        if (closeInstallBtn) {
-            closeInstallBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                hidePWABanner();
-            });
-        }
-        
-        // Evento para instalar PWA
-        if (installBtn) {
-            installBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                // main.js maneja la instalación
-                if (typeof installPWA === 'function') {
-                    installPWA();
-                }
-                hidePWABanner();
-            });
-        }
-        
-        // Auto-ocultar el banner PWA después de 10 segundos
-        setTimeout(function() {
-            if (pwaBanner && pwaBanner.classList.contains('show')) {
-                hidePWABanner();
-            }
-        }, 10000);
-        
-        // ===== MANEJO DEL MENÚ HAMBURGUESA =====
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileDropdown = document.getElementById('mobile-dropdown');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        
-        console.log('Botón hamburguesa:', mobileMenuBtn ? '✅' : '❌');
-        console.log('Dropdown móvil:', mobileDropdown ? '✅' : '❌');
-        console.log('Overlay:', mobileMenuOverlay ? '✅' : '❌');
-        
-        if (!mobileMenuBtn || !mobileDropdown || !mobileMenuOverlay) {
-            console.error('❌ Elementos del menú no encontrados');
-            return;
-        }
-        
-        // Función para abrir el menú
-        function openMobileMenu() {
-            console.log('📱 Abriendo menú móvil');
-            mobileDropdown.classList.remove('hidden');
-            mobileMenuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => {
-                mobileDropdown.classList.add('show');
-            }, 10);
-        }
-        
-        // Función para cerrar el menú
-        function closeMobileMenu() {
-            console.log('📱 Cerrando menú móvil');
-            mobileDropdown.classList.remove('show');
-            setTimeout(() => {
-                mobileDropdown.classList.add('hidden');
-                mobileMenuOverlay.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        }
-        
-        // Evento del botón hamburguesa
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('🍔 Click en botón hamburguesa');
-            
-            const isOpen = !mobileDropdown.classList.contains('hidden');
-            if (isOpen) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        });
-        
-        // Evento del overlay (cerrar al hacer click fuera)
-        mobileMenuOverlay.addEventListener('click', function() {
-            closeMobileMenu();
-        });
-        
-        // Evento para el botón de cerrar menú (X)
-        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
-        if (closeMobileMenuBtn) {
-            closeMobileMenuBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('❌ Cerrando menú desde botón X');
-                closeMobileMenu();
-            });
-        }
-        
-        // Manejar submenús (acordeones)
-        const submenuButtons = document.querySelectorAll('#mobile-dropdown .submenu-parent-btn');
-        console.log('Botones de submenú encontrados:', submenuButtons.length);
-        
-        submenuButtons.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const parent = this.closest('.has-submenu');
-                const submenu = parent.querySelector('.submenu');
-                const arrow = this.querySelector('.submenu-arrow');
-                
-                // Cerrar otros submenús
-                document.querySelectorAll('#mobile-dropdown .has-submenu').forEach(function(other) {
-                    if (other !== parent) {
-                        other.classList.remove('submenu-open');
-                        const otherSubmenu = other.querySelector('.submenu');
-                        const otherArrow = other.querySelector('.submenu-arrow');
-                        if (otherSubmenu) otherSubmenu.classList.remove('show');
-                        if (otherArrow) otherArrow.style.transform = '';
-                    }
-                });
-                
-                // Toggle este submenú
-                const isOpen = parent.classList.contains('submenu-open');
-                if (isOpen) {
-                    parent.classList.remove('submenu-open');
-                    if (submenu) submenu.classList.remove('show');
-                    if (arrow) arrow.style.transform = '';
-                } else {
-                    parent.classList.add('submenu-open');
-                    if (submenu) submenu.classList.add('show');
-                    if (arrow) arrow.style.transform = 'rotate(90deg)';
-                }
-            });
-        });
-        
-        console.log('✅ Menú hamburguesa inicializado correctamente');
-        
-        // ===== EVITAR CIERRE AUTOMÁTICO DEL MENÚ EN MÓVIL =====
-        setTimeout(function() {
-            // Sobrescribir closeActiveMenu
-            const originalClose = window.closeActiveMenu;
-            window.closeActiveMenu = function() {
-                // Si es móvil (< 1024px), NO cerrar el menú móvil ni sus submenús
-                if (window.innerWidth < 1024) {
-                    console.log('📱 Móvil - NO cerrando menú ni submenús');
-                    // SOLO cerrar megamenús de ESCRITORIO (no los del menú móvil)
-                    document.querySelectorAll('.desktop-navbar .asesor-megamenu').forEach(m => m.classList.remove('show'));
-                    document.querySelectorAll('.desktop-navbar .has-submenu').forEach(i => i.classList.remove('megamenu-open'));
-                    // Cerrar panel lateral de escritorio si existe
-                    const desktopPanel = document.getElementById('desktop-submenu-panel');
-                    if (desktopPanel && desktopPanel.classList.contains('is-open')) {
-                        desktopPanel.classList.remove('is-open');
-                    }
-                } else if (typeof originalClose === 'function') {
-                    // En PC, usar comportamiento normal
-                    originalClose();
-                }
-            };
-            console.log('✅ closeActiveMenu modificada - Submenús móviles protegidos');
-        }, 300);
-        
-        // ===== PREVENIR CONFLICTOS CON SEARCH.JS =====
-        // Esperar a que search.js agregue el botón de búsqueda
-        setTimeout(function() {
-            const searchButton = document.getElementById('global-search-button');
-            if (searchButton) {
-                console.log('🔍 Botón de búsqueda encontrado');
-            }
-        }, 500);
-    });
-    </script>
-    
-      <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const suspensionNotice = document.getElementById('suspension-notice');
-    if (suspensionNotice) {
-        setTimeout(() => {
-            suspensionNotice.classList.add('show');
-        }, 500);
-        setTimeout(() => {
-            suspensionNotice.classList.remove('show');
-            suspensionNotice.classList.add('hide');
-            setTimeout(() => {
-                suspensionNotice.style.display = 'none';
-            }, 500);
-        }, 7500);
-    }
-});
-</script>
 <!-- SCRIPT PARA ACORDEÓN (AÑADIDO) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Función reutilizable para configurar cada sección colapsable
-            function setupAccordion(toggleId, contentId, arrowId) {
-                const toggleButton = document.getElementById(toggleId);
-                const contentElement = document.getElementById(contentId);
-                const arrowElement = document.getElementById(arrowId);
-                // Nos aseguramos que todos los elementos existan antes de agregar el evento
-                if (toggleButton && contentElement && arrowElement) {
-                    toggleButton.addEventListener('click', function() {
-                        // Muestra u oculta el contenido
-                        contentElement.classList.toggle('hidden');
-                        // Gira la flecha
-                        arrowElement.classList.toggle('rotate-90');
-                    });
-                }
-            }
-            // Configurar las tres secciones
-            setupAccordion('leyes-toggle', 'leyes-content', 'leyes-arrow');
-            setupAccordion('decretos-toggle', 'decretos-content', 'decretos-arrow');
-            setupAccordion('resoluciones-toggle', 'resoluciones-content', 'resoluciones-arrow');
-            // Similar para la sección de Documentos (si se quisiera)
-            setupAccordion('docs-editables-toggle', 'docs-editables-content', 'docs-editables-arrow');
-            setupAccordion('modelos-solicitud-toggle', 'modelos-solicitud-content', 'modelos-solicitud-arrow');
-            setupAccordion('manuales-toggle', 'manuales-content', 'manuales-arrow');
-        });
-    </script>
     
     <!-- ✨ SCRIPT PARA ANIMACIÓN SPD -->
-    <script>
-        (function() {
-            // Función para animar un elemento SPD
-            function animarTextoSPD(elementoId) {
-                const textoElement = document.getElementById(elementoId);
-                if (!textoElement) {
-                    console.error('No se encontró el elemento:', elementoId);
-                    return;
-                }
-                
-                const textos = ['SPD', 'SUBSECRETARÍA PREV. DELITO'];
-                let indiceActual = 0;
-                
-                function alternarTexto() {
-                    // Fade out
-                    textoElement.classList.add('fade-out');
-                    
-                    // Después de 600ms cambiar el texto
-                    setTimeout(function() {
-                        indiceActual = (indiceActual + 1) % textos.length;
-                        textoElement.textContent = textos[indiceActual];
-                        
-                        // Fade in
-                        textoElement.classList.remove('fade-out');
-                    }, 600);
-                }
-                
-                // Alternar cada 3 segundos
-                setInterval(alternarTexto, 3000);
-            }
-            
-            // Iniciar animación cuando el DOM esté listo
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', function() {
-                    animarTextoSPD('texto-spd-mobile');
-                    animarTextoSPD('texto-spd-desktop');
-                });
-            } else {
-                animarTextoSPD('texto-spd-mobile');
-                animarTextoSPD('texto-spd-desktop');
-            }
-        })();
-    </script>
-    
-    <script>
-        // Función para manejar el clic en SPD y redirigir a spd.html
-        function handleSPD() {
-            window.location.href = 'spd.html';
-        }
-    </script>
     
     <script src="assets/js/search.js?v=1"></script>
     
     <!-- Funciones para menú hamburguesa y búsqueda móvil -->
     <!-- NOTA: Código de menú móvil movido a main.js para evitar duplicación y conflictos -->
     <!--
-    <script>
-        // Función para toggle del menú móvil
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileDropdown = document.getElementById('mobile-dropdown');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileDropdown.classList.toggle('hidden');
-                    mobileMenuOverlay.classList.toggle('hidden');
-                    document.body.classList.toggle('overflow-hidden');
-                });
-            }
-            
-            if (mobileMenuOverlay) {
-                mobileMenuOverlay.addEventListener('click', function() {
-                    mobileDropdown.classList.add('hidden');
-                    mobileMenuOverlay.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                });
-            }
-            
-            // Manejar submenús en móvil
-            const submenuParents = document.querySelectorAll('.has-submenu .submenu-parent-btn');
-            submenuParents.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const parent = this.closest('.has-submenu');
-                    const submenu = parent.querySelector('.submenu');
-                    const arrow = this.querySelector('.submenu-arrow');
-                    
-                    // Toggle submenu
-                    submenu.classList.toggle('hidden');
-                    if (arrow) {
-                        arrow.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(90deg)';
-                    }
-                });
-            });
-        });
-    </script>
     -->
     
     <!-- Biblioteca para generar PDFs -->
@@ -2802,236 +1462,495 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="assets/js/spd-componentes.js?v=2"></script>
     
     <!-- Función para descargar contenido en PDF con animación -->
-    <script>
-        // Función para descargar el contenido del modal en PDF
-        function descargarModalPDF(tipo) {
-            // Obtener el título del modal
-            const titulo = document.getElementById('modalTitulo').textContent;
-            const contenido = document.getElementById('modalContenido');
-            
-            // Mostrar animación PRIMERO
-            const animacion = document.getElementById('pdfDownloadAnimation');
-            if (animacion) {
-                animacion.classList.add('active');
-                setTimeout(() => {
-                    animacion.classList.remove('active');
-                }, 5500);
-            }
-            
-            // ESPERAR 2 SEGUNDOS antes de generar el PDF
-            // Esto permite que la animación se vea primero
-            setTimeout(() => {
-                // Crear un contenedor temporal con el contenido
-                const contenedorTemp = document.createElement('div');
-                contenedorTemp.style.cssText = 'padding: 5px; background-color: white; margin: 0; width: 100%;';
-                
-                // Agregar título
-                const tituloElement = document.createElement('h1');
-                tituloElement.textContent = titulo;
-                tituloElement.style.cssText = 'font-size: 20px; font-weight: bold; margin: 0 0 10px 0; padding: 0; color: #1f2937;';
-                contenedorTemp.appendChild(tituloElement);
-                
-                // Clonar el contenido del modal
-                const contenidoClone = contenido.cloneNode(true);
-                
-                // Ocultar botón de descarga en el clon
-                const botonPDF = contenidoClone.querySelector('.btn-pdf-modal');
-                if (botonPDF) {
-                    botonPDF.remove();
-                }
-                
-                // CRÍTICO: Eliminar TODOS los espacios y márgenes grandes
-                contenidoClone.style.cssText = 'margin: 0; padding: 0;';
-                
-                // Aplicar estilos a TODOS los elementos para flujo continuo
-                const todosLosElementos = contenidoClone.querySelectorAll('*');
-                todosLosElementos.forEach(elemento => {
-                    // Eliminar márgenes verticales grandes
-                    if (elemento.style.marginTop) elemento.style.marginTop = '0';
-                    if (elemento.style.marginBottom) elemento.style.marginBottom = '0';
-                    if (elemento.style.paddingTop) elemento.style.paddingTop = '0';
-                    if (elemento.style.paddingBottom) elemento.style.paddingBottom = '0';
-                    
-                    // Aplicar márgenes pequeños a secciones
-                    if (elemento.classList.contains('requisito-section-componentes')) {
-                        elemento.style.cssText += 'margin: 5px 0 !important; padding: 8px !important; page-break-inside: avoid; page-break-after: auto; page-break-before: auto;';
-                    }
-                    
-                    // Aplicar estilos a items
-                    if (elemento.classList.contains('requisito-item-componentes')) {
-                        elemento.style.cssText += 'margin: 3px 0 !important; padding: 6px !important; page-break-inside: avoid;';
-                    }
-                    
-                    // Reducir espacios en divs con clases de Tailwind
-                    if (elemento.className && typeof elemento.className === 'string') {
-                        if (elemento.className.includes('mt-')) {
-                            elemento.style.marginTop = '5px';
-                        }
-                        if (elemento.className.includes('mb-')) {
-                            elemento.style.marginBottom = '5px';
-                        }
-                        if (elemento.className.includes('space-y-')) {
-                            elemento.style.cssText += 'gap: 5px;';
-                        }
-                    }
-                });
-                
-                contenedorTemp.appendChild(contenidoClone);
-                
-                // Generar nombre de archivo
-                const nombreArchivo = `OS10-Requisitos-${titulo.replace(/\s+/g, '-')}.pdf`;
-                
-                // Configuración del PDF optimizada para flujo continuo
-                const opciones = {
-                    margin: [8, 8, 8, 8],
-                    filename: nombreArchivo,
-                    image: { 
-                        type: 'jpeg', 
-                        quality: 0.96 
-                    },
-                    html2canvas: { 
-                        scale: 1.5,
-                        useCORS: true,
-                        logging: false,
-                        letterRendering: true,
-                        backgroundColor: '#ffffff',
-                        scrollY: 0,
-                        scrollX: 0,
-                        windowHeight: document.documentElement.scrollHeight,
-                        onclone: function(clonedDoc) {
-                            const clonedContent = clonedDoc.body.querySelector('div');
-                            if (clonedContent) {
-                                const allElements = clonedContent.querySelectorAll('*');
-                                allElements.forEach(el => {
-                                    el.style.pageBreakInside = 'auto';
-                                    el.style.pageBreakBefore = 'auto';
-                                    el.style.pageBreakAfter = 'auto';
-                                });
-                            }
-                        }
-                    },
-                    jsPDF: { 
-                        unit: 'mm', 
-                        format: 'a4', 
-                        orientation: 'portrait',
-                        compress: true
-                    },
-                    pagebreak: { 
-                        mode: [],
-                        before: [],
-                        after: [],
-                        avoid: []
-                    }
-                };
-                
-                // Generar y descargar PDF
-                html2pdf().set(opciones).from(contenedorTemp).save().then(() => {
-                    console.log('✅ PDF descargado:', nombreArchivo);
-                }).catch(error => {
-                    console.error('❌ Error al generar PDF:', error);
-                    alert('Error al generar el PDF. Por favor, intenta nuevamente.');
-                });
-                
-            }, 3000); // ESPERA 3 SEGUNDOS antes de generar PDF
-        }
-    </script>
     
     <!-- Script mejorado para ocultar el banner verde cuando el modal está activo -->
-    <script>
-        (function() {
-            'use strict';
-            
-            // Función para ocultar/mostrar el banner
-            function toggleBanner() {
-                const modal = document.getElementById('modalRequisitos');
-                const desktopNavbar = document.querySelector('.desktop-navbar');
-                
-                if (!modal || !desktopNavbar) {
-                    console.warn('⚠️ No se encontró el modal o el banner');
-                    return;
-                }
-                
-                const isActive = modal.classList.contains('active');
-                
-                if (isActive) {
-                    // Ocultar banner cuando modal está activo
-                    desktopNavbar.classList.add('hide-on-modal');
-                    desktopNavbar.style.display = 'none';
-                    desktopNavbar.style.visibility = 'hidden';
-                    desktopNavbar.style.opacity = '0';
-                    console.log('🟢 Banner verde oculto');
-                } else {
-                    // Mostrar banner cuando modal está cerrado
-                    desktopNavbar.classList.remove('hide-on-modal');
-                    desktopNavbar.style.display = 'block';
-                    desktopNavbar.style.visibility = 'visible';
-                    desktopNavbar.style.opacity = '1';
-                    console.log('🟢 Banner verde visible');
-                }
-            }
-            
-            // Ejecutar cuando el DOM esté listo
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
-            
-            function init() {
-                const modal = document.getElementById('modalRequisitos');
-                
-                if (!modal) {
-                    console.warn('⚠️ Modal no encontrado');
-                    return;
-                }
-                
-                // Método 1: Observador de mutaciones
-                const observer = new MutationObserver(function(mutations) {
-                    toggleBanner();
-                });
-                
-                observer.observe(modal, {
-                    attributes: true,
-                    attributeFilter: ['class']
-                });
-                
-                // Método 2: Verificación periódica (fallback)
-                setInterval(toggleBanner, 100);
-                
-                console.log('✅ Sistema de ocultación de banner activado (con fallback)');
-            }
-        })();
-    </script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chevronButton = document.getElementById('scroll-up-chevron');
-            let scrollTimeout;
 
-            if (!chevronButton) return;
-            // Mostrar/ocultar chevron según scroll
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    chevronButton.classList.add('visible');
-                    
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        chevronButton.classList.remove('visible');
-                    }, 4000);
-                                        
-                } else {
-                   chevronButton.classList.remove('visible');
-                }
-            });
-            // Click en chevron para subir
-             chevronButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <!-- ==================== SECCIÓN SPD (INTEGRADA) ==================== -->
+    <div id="spd-section" style="display: none;">
+<!-- Banner superior -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 h-14 sm:h-16 flex items-center justify-between px-3 sm:px-4 shadow-sm">
+        <a href="index.html" class="flex items-center space-x-1 sm:space-x-2">
+            <img src="assets/images/logo-os10.png" alt="OS10 Logo" class="h-8 sm:h-10" loading="lazy">
+            <span class="font-bold text-gray-980 text-sm sm:text-base">O.S.10 Coquimbo</span>
+        </a>
+    </div>
+
+    <!-- Contenido principal con container angosto -->
+    <div id="main-content" class="max-w-4xl mx-auto px-1 sm:px-4">
+        <!-- VISTA PRINCIPAL (SPD) -->
+        <div id="vistaPrincipal" class="card-spd">
+            <!-- BOTÓN VOLVER -->
+            <a href="index.html" class="btn-volver-card" onclick="volverAlIndex(event)">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <span>Volver</span>
+            </a>
+            
+            <!-- Encabezado -->
+            <div class="text-center mb-8 pt-12 sm:pt-4">
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
+                    PORTAL DE INFORMACIÓN A LA SUBSECRETARÍA DE PREVENCIÓN DEL DELITO
+                </h1>
+                <p class="text-sm sm:text-base text-gray-600 mb-4">
+                    Accede a la plataforma de Seguridad Privada y consulta información relevante
+                </p>
+                <div class="flex justify-center">
+                    <a href="https://segprivada.minsegpublica.gob.cl/" target="_blank" class="btn-spd btn-spd-centered" id="btnSPD">
+                        Acceder a la Plataforma SPD
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Informativo -->
+            <div class="section-spd">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <span>Información y Trámites</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4">
+                    Consulta el informativo oficial y realiza consultas sobre trámites:
+                </p>
+                <div class="flex flex-col gap-3 w-full">
+                    <a href="https://segprivada-docs.minsegpublica.gob.cl/Informativo_N1.pdf" target="_blank" class="btn-spd text-sm">
+                        📄 ¿Dónde hacer los trámites?
+                    </a>
+                    <a href="https://siac-msp.interior.gob.cl/ingreso" target="_blank" class="btn-spd text-sm">
+                        💬 Dudas y consultas 
+                    </a>
+                </div>
+            </div>
+
+            <!-- Preguntas Frecuentes -->
+            <div class="section-spd">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <span>Preguntas Frecuentes</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4">
+                    Encuentra respuestas a las consultas más comunes sobre seguridad privada:
+                </p>
+                <div>
+                    <a href="https://segprivada.minsegpublica.gob.cl/preguntas-frecuentes" target="_blank" class="btn-spd text-sm">
+                        Ver Preguntas Frecuentes
+                    </a>
+                </div>
+            </div>
+
+            <!-- Componentes de Seguridad Privada -->
+            <div class="section-spd">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <span>Requisitos por Componente</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                    Consulta los requisitos completos según <strong>Ley 21.659</strong> y <strong>Decreto 209</strong>:
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="feature-badge">✓ Vigilantes Privados</span>
+                    <span class="feature-badge">✓ Jefes de Seguridad</span>
+                    <span class="feature-badge">✓ Guardias</span>
+                    <span class="feature-badge">✓ Supervisores</span>
+                    <span class="feature-badge">✓ Asesores</span>
+                    <span class="feature-badge">✓ Capacitadores</span>
+                    <span class="feature-badge">✓ Y más...</span>
+                </div>
+                <div>
+                    <button onclick="mostrarComponentes()" class="btn-spd btn-green text-sm">
+                        📋 Requisitos por Componente
+                    </button>
+                </div>
+            </div>
+
+            <!-- Asignaturas de Capacitación -->
+            <div class="section-spd">
+                <div class="section-title">
+                    <div class="section-icon" style="background: #fef3c7;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" style="color: #d97706;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <span>Asignaturas de Capacitación</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                    Consulta las <strong>mallas de capacitación completas</strong> según <strong>Decreto 209</strong>:
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="feature-badge" style="background: white; color: #d97706; border: 1px solid #d97706;">✓ Vigilantes Privados (13 asignaturas - 100h)</span>
+                    <span class="feature-badge" style="background: white; color: #d97706; border: 1px solid #d97706;">✓ Guardias de Seguridad (12 asignaturas - 90h)</span>
+                    <span class="feature-badge" style="background: white; color: #d97706; border: 1px solid #d97706;">✓ Porteros/Nocheros/Rondines (8 asignaturas - 60h)</span>
+                </div>
+                <div>
+                    <button onclick="mostrarAsignaturas()" class="btn-spd text-sm" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; box-shadow: 0 4px 6px rgba(217, 119, 6, 0.3);">
+                        📚 Asignaturas Capacitación
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contacto por Correo -->
+            <div class="section-spd">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <span>Contacto por Correo Electrónico</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 font-semibold">
+                    Si la plataforma no funciona, contacta por correo:
+                </p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-800 mb-2">
+                            📋 OTEC - Carga Sobredimensionada - Persona Natural y Jurídica
+                        </h3>
+                        <div class="email-box">
+                            <a href="/cdn-cgi/l/email-protection#d6a5a6b2fbb5b7a4b1b7b2bfbbb3b8a5bfb9b8b7b2b796bbbfb8a5b3b1a6a3b4babfb5b7f8b1b9b4f8b5ba" class="text-blue-600 hover:text-blue-800 font-semibold">
+                                <span class="__cf_email__" data-cfemail="ea999a8ec7898b988d8b8e83878f84998385848b8e8baa878384998f8d9a9f888683898bc48d8588c48986">[email&#160;protected]</span>
+                            </a>
+                        </div>
+                        <ul class="mt-2 ml-6 text-xs text-gray-600 list-disc space-y-1">
+                            <li>Organismos Técnicos de Capacitación (OTEC)</li>
+                            <li>Consultas sobre carga sobredimensionada</li>
+                            <li>Trámites para personas naturales y jurídicas</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-800 mb-2">
+                            🎓 Planes, Programas y Cursos de Capacitación
+                        </h3>
+                        <div class="email-box">
+                            <a href="/cdn-cgi/l/email-protection#f7848793da94968796949e8396949e989992848487b79a9e998492908782959b9e9496d9909895d9949b" class="text-blue-600 hover:text-blue-800 font-semibold">
+                                <span class="__cf_email__" data-cfemail="314241551c525041505258455052585e5f54424241715c585f4254564144535d5852501f565e531f525d">[email&#160;protected]</span>
+                            </a>
+                        </div>
+                        <ul class="mt-2 ml-6 text-xs text-gray-600 list-disc space-y-1">
+                            <li>Consultas sobre planes de capacitación</li>
+                            <li>Programas de formación en seguridad privada</li>
+                            <li>Información sobre cursos disponibles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nota Importante -->
+            <div class="note-important">
+                <div class="flex items-start gap-3">
+                    <svg class="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div>
+                        <h3 class="text-sm font-bold text-gray-800 mb-2">ℹ️ Información Importante</h3>
+                        <p class="text-xs text-gray-700 space-y-1">
+                            <span class="block">➢ Lo que no aparezca en la plataforma de la SPD debe tramitarse en el <strong>O.S.10 Coquimbo</strong>.</span>
+                            <span class="block">➢ En la plataforma SPD <strong>no es necesario el Certificado de Idoneidad Cívica</strong>, ya que mantienen esa información actualizada.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA DE COMPONENTES (OCULTA POR DEFECTO) -->
+        <div id="vistaComponentes" class="card-spd animate-in">
+            <!-- BOTÓN VOLVER A SPD -->
+            <button onclick="volverASPD()" class="btn-volver-card">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <span>Volver</span>
+            </button>
+
+            <!-- Encabezado -->
+            <div class="text-center mb-6 pt-12 sm:pt-4">
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
+                    Componentes de Seguridad Privada
+                </h1>
+                <p class="text-sm sm:text-base text-gray-600">
+                    Selecciona un componente para ver sus requisitos completos
+                </p>
+            </div>
+            <!-- LISTA DE COMPONENTES: GRID 3 COLUMNAS PARA PC (MODIFICADO) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+                <button onclick="mostrarRequisitos('vigilante')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Vigilante Privado</div>
+                        <div class="text-xs">Protección con armas de fuego</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('jefe')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Jefe de Seguridad</div>
+                        <div class="text-xs">Dirección y gestión de seguridad</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('encargado')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Encargado de Seguridad</div>
+                        <div class="text-xs">Coordinación en recintos</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('guardia')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Guardia de Seguridad</div>
+                        <div class="text-xs">Protección sin armas de fuego</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('supervisor')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Supervisor de Seguridad</div>
+                        <div class="text-xs">Supervisión y control</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('asesor')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Asesor de Seguridad</div>
+                        <div class="text-xs">Asesoría y estudios de seguridad</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('capacitador')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Capacitador</div>
+                        <div class="text-xs">Formación y capacitación</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('portero')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Portero / Nochero / Rondín</div>
+                        <div class="text-xs">Funciones en recintos</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('encargadoArmas')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Encargado de Armas</div>
+                        <div class="text-xs">Resguardo de armamento</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('tecnico')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Técnico en Seguridad Privada</div>
+                        <div class="text-xs">Sistemas electrónicos</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('operador')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Operador de Cámaras y Alarmas</div>
+                        <div class="text-xs">Televigilancia y control</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('instalador')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Instalador Técnico</div>
+                        <div class="text-xs">Instalación de sistemas</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <button onclick="mostrarRequisitos('empresa')" class="btn-componente">
+                    <div class="btn-componente-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold">Empresas de Seguridad Privada</div>
+                        <div class="text-xs">Recursos Humanos, Capacitadoras, Asesoras y Técnicos</div>
+                    </div>
+                    <div class="btn-componente-arrow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL DE REQUISITOS -->
+    <div id="modalRequisitos" class="modal-requisitos">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitulo" class="text-xl sm:text-2xl font-bold pr-12"></h2>
+                <button onclick="cerrarModal()" class="close-modal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalContenido" class="modal-body"></div>
+        </div>
+    </div>
+    
+    <!-- Animación de descarga PDF -->
+    <div id="pdfDownloadAnimation" class="pdf-download-animation">
+        <div class="pdf-icon-animated">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17h6M9 13h6M9 9h3"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- JAVASCRIPT PARA MODALES Y PDF -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    
+    <!-- Footer -->
+    <footer class="text-white py-6 mt-8" style="background-color: #156315;">
+         <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm">
+                <p>© 2026 Prefectura de Coquimbo, O.S.10. Todos los derechos reservados.</p>
+                <p class="mt-1">Plataforma desarrollada por Daniel Figueroa Ch. Ingeniero en Informática & Ciberseguridad</p>
+            </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTEGRADO -->
+    </div>
+    <!-- ==================== FIN SECCIÓN SPD ==================== -->
+
 </body>
-    </html>
+</html>
