@@ -1409,9 +1409,6 @@
     <div id="chat-backdrop" class="hidden fixed inset-0 bg-black/60 z-40"></div>
     <button id="back-to-top" class="hidden fixed bottom-5 right-5"></button>
     
-    <!-- Script principal con funciones de navegación -->
-    <script src="assets/js/index.js"></script>
-    
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/inicio.js?v=4" defer></script>
     <script src="assets/js/carousel.js" defer></script>
     <script src="assets/js/main.js" defer></script>
@@ -1951,6 +1948,505 @@
     <!-- JAVASCRIPT INTEGRADO -->
     </div>
     <!-- ==================== FIN SECCIÓN SPD ==================== -->
+
+    <!-- ========== FUNCIONES DE NAVEGACIÓN (FORZADAS GLOBALMENTE) ========== -->
+    <script>
+    // Definir funciones FORZADAMENTE en window para sobrescribir cualquier otra definición
+    (function() {
+        'use strict';
+        
+        // Función handleSPD
+        window.handleSPD = function() {
+            console.log('🔵 handleSPD() EJECUTADA');
+            try {
+                const homepageSection = document.getElementById('homepage-section');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                const credencialesSection = document.getElementById('credenciales-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const spdSection = document.getElementById('spd-section');
+                
+                if (homepageSection) homepageSection.style.display = 'none';
+                if (contenidoSection) contenidoSection.style.display = 'none';
+                if (mainSection) mainSection.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'none';
+                if (homepageWrapper) homepageWrapper.style.display = 'none';
+                
+                if (spdSection) {
+                    spdSection.style.display = 'block';
+                    console.log('✅ Sección SPD MOSTRADA');
+                } else {
+                    console.error('❌ NO SE ENCONTRÓ #spd-section');
+                }
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-directiva', 'show-credenciales');
+                document.body.classList.add('show-spd');
+            } catch (error) {
+                console.error('❌ ERROR en handleSPD():', error);
+            }
+        };
+        
+        // Función showHomepage
+        window.showHomepage = function() {
+            console.log('🏠 showHomepage() EJECUTADA');
+            try {
+                const homepageSection = document.getElementById('homepage-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                const credencialesSection = document.getElementById('credenciales-section');
+                const spdSection = document.getElementById('spd-section');
+                
+                if (homepageSection) homepageSection.style.display = 'block';
+                if (homepageWrapper) homepageWrapper.style.display = 'block';
+                if (contenidoSection) contenidoSection.style.display = 'none';
+                if (mainSection) mainSection.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'none';
+                if (spdSection) spdSection.style.display = 'none';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-directiva', 'show-credenciales', 'show-spd');
+            } catch (error) {
+                console.error('❌ ERROR en showHomepage():', error);
+            }
+        };
+        
+        // Función openNewLink
+        window.openNewLink = function(url) {
+            console.log('🔗 openNewLink() EJECUTADA con URL:', url);
+            try {
+                window.open(url, '_blank');
+            } catch (error) {
+                console.error('❌ ERROR en openNewLink():', error);
+            }
+        };
+        
+        // Función handleDirectiva
+        window.handleDirectiva = function() {
+            console.log('📋 handleDirectiva() EJECUTADA');
+            try {
+                const homepageSection = document.getElementById('homepage-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const credencialesSection = document.getElementById('credenciales-section');
+                const spdSection = document.getElementById('spd-section');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                
+                if (homepageSection) homepageSection.style.display = 'none';
+                if (homepageWrapper) homepageWrapper.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'none';
+                if (spdSection) spdSection.style.display = 'none';
+                if (contenidoSection) contenidoSection.style.display = 'block';
+                if (mainSection) mainSection.style.display = 'block';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-credenciales', 'show-spd');
+                document.body.classList.add('show-directiva');
+            } catch (error) {
+                console.error('❌ ERROR en handleDirectiva():', error);
+            }
+        };
+        
+        window.showDirectiva = window.handleDirectiva;
+        
+        // Función handleCredenciales
+        window.handleCredenciales = function() {
+            console.log('🆔 handleCredenciales() EJECUTADA');
+            try {
+                const homepageSection = document.getElementById('homepage-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                const spdSection = document.getElementById('spd-section');
+                const credencialesSection = document.getElementById('credenciales-section');
+                
+                if (homepageSection) homepageSection.style.display = 'none';
+                if (homepageWrapper) homepageWrapper.style.display = 'none';
+                if (contenidoSection) contenidoSection.style.display = 'none';
+                if (mainSection) mainSection.style.display = 'none';
+                if (spdSection) spdSection.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'block';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-directiva', 'show-spd');
+                document.body.classList.add('show-credenciales');
+            } catch (error) {
+                console.error('❌ ERROR en handleCredenciales():', error);
+            }
+        };
+        
+        window.showCredenciales = window.handleCredenciales;
+        
+        // Otras funciones
+        window.handleValores = function() {
+            const valoresSection = document.querySelector('#valores-section, #tramites-principales');
+            if (valoresSection) valoresSection.scrollIntoView({ behavior: 'smooth' });
+        };
+        
+        window.handleValorPlan = function() { window.openNewLink('https://d6.short.gy/Pl4n'); };
+        window.handleCerofilas = function() { alert('Función Cerofilas en desarrollo'); };
+        window.handleCredencialIndependiente = function() { window.handleCredenciales(); };
+        window.handleBuscarCurso = function(url) { window.openNewLink(url); };
+        window.volverAlIndex = function(event) {
+            if (event) event.preventDefault();
+            window.showHomepage();
+        };
+        
+        window.mostrarComponentes = function() {
+            const vistaPrincipal = document.getElementById('vistaPrincipal');
+            const vistaComponentes = document.getElementById('vistaComponentes');
+            if (vistaPrincipal) vistaPrincipal.style.display = 'none';
+            if (vistaComponentes) {
+                vistaComponentes.style.display = 'block';
+                vistaComponentes.classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        window.volverAPrincipal = function() {
+            const vistaPrincipal = document.getElementById('vistaPrincipal');
+            const vistaComponentes = document.getElementById('vistaComponentes');
+            if (vistaPrincipal) vistaPrincipal.style.display = 'block';
+            if (vistaComponentes) {
+                vistaComponentes.style.display = 'none';
+                vistaComponentes.classList.remove('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        window.volverASPD = window.volverAPrincipal;
+        
+        window.cerrarModal = function() {
+            const modal = document.getElementById('modalRequisitos');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        };
+        
+        window.mostrarRequisitos = function(tipo) {
+            console.log('📋 mostrarRequisitos():', tipo);
+            const modal = document.getElementById('modalRequisitos');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+        
+        window.mostrarAsignaturas = function() {
+            console.log('📚 mostrarAsignaturas()');
+            const modal = document.getElementById('modalRequisitos');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+        
+        console.log('✅ ========================================');
+        console.log('✅ FUNCIONES DE NAVEGACIÓN CARGADAS');
+        console.log('✅ handleSPD:', typeof window.handleSPD);
+        console.log('✅ showHomepage:', typeof window.showHomepage);
+        console.log('✅ openNewLink:', typeof window.openNewLink);
+        console.log('✅ ========================================');
+    })();
+    </script>
+    
+    <!-- JAVASCRIPT PARA BANNER VERDE (MENÚS DESPLEGABLES) -->
+    <script>
+    (function() {
+        'use strict';
+        
+        console.log('🟢 ==================== BANNER VERDE - MENÚS DESPLEGABLES ====================');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.desktop-nav-item');
+            let closeTimeout;
+            let currentOpenSubmenu = null;
+            
+            console.log('🟢 Banner verde encontrado con', navItems.length, 'items');
+            
+            // Función para cerrar todos los submenús
+            function closeAllSubmenus() {
+                navItems.forEach(item => {
+                    const submenu = item.querySelector('.desktop-submenu');
+                    if (submenu) {
+                        submenu.classList.remove('active');
+                        item.classList.remove('active');
+                    }
+                });
+                currentOpenSubmenu = null;
+            }
+            
+            // Agregar eventos a cada item del menú
+            navItems.forEach(item => {
+                const submenu = item.querySelector('.desktop-submenu');
+                
+                if (submenu) {
+                    console.log('🟢 Menú con submenú encontrado:', item.textContent.trim().substring(0, 20));
+                    
+                    // Mouseenter - abrir submenú
+                    item.addEventListener('mouseenter', function() {
+                        clearTimeout(closeTimeout);
+                        
+                        // Si hay otro menú abierto, cerrarlo primero
+                        if (currentOpenSubmenu && currentOpenSubmenu !== item) {
+                            const oldSubmenu = currentOpenSubmenu.querySelector('.desktop-submenu');
+                            if (oldSubmenu) {
+                                oldSubmenu.classList.remove('active');
+                                currentOpenSubmenu.classList.remove('active');
+                            }
+                        }
+                        
+                        // Abrir este menú
+                        submenu.classList.add('active');
+                        item.classList.add('active');
+                        currentOpenSubmenu = item;
+                        
+                        console.log('✅ Submenú abierto:', item.textContent.trim().substring(0, 20));
+                    });
+                    
+                    // Mouseleave - cerrar submenú con delay
+                    item.addEventListener('mouseleave', function() {
+                        closeTimeout = setTimeout(function() {
+                            submenu.classList.remove('active');
+                            item.classList.remove('active');
+                            if (currentOpenSubmenu === item) {
+                                currentOpenSubmenu = null;
+                            }
+                            console.log('❌ Submenú cerrado:', item.textContent.trim().substring(0, 20));
+                        }, 200); // Delay de 200ms
+                    });
+                }
+            });
+            
+            // Cerrar todos los menús al hacer scroll
+            window.addEventListener('scroll', function() {
+                closeAllSubmenus();
+            });
+            
+            // Cerrar todos los menús al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.desktop-nav-item')) {
+                    closeAllSubmenus();
+                }
+            });
+            
+            console.log('✅ BANNER VERDE - Eventos de menús configurados correctamente');
+            console.log('🟢 ================================================================');
+        });
+    })();
+    </script>
+    
+    <!-- SCRIPT DE PROTECCIÓN - SE EJECUTA AL FINAL PARA SOBRESCRIBIR CUALQUIER CONFLICTO -->
+    <script>
+    (function() {
+        'use strict';
+        
+        console.log('🛡️ ==================== PROTECCIÓN DE FUNCIONES ====================');
+        
+        // FORZAR las funciones críticas (protegidas contra sobrescritura)
+        const FUNCIONES_PROTEGIDAS = {
+            handleSPD: function() {
+                console.log('🔵 handleSPD() EJECUTADA (PROTEGIDA)');
+                try {
+                    const homepageSection = document.getElementById('homepage-section');
+                    const contenidoSection = document.getElementById('contenido');
+                    const mainSection = document.getElementById('main-section');
+                    const credencialesSection = document.getElementById('credenciales-section');
+                    const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                    const spdSection = document.getElementById('spd-section');
+                    
+                    console.log('📍 Ocultando homepage...');
+                    if (homepageSection) homepageSection.style.display = 'none';
+                    if (contenidoSection) contenidoSection.style.display = 'none';
+                    if (mainSection) mainSection.style.display = 'none';
+                    if (credencialesSection) credencialesSection.style.display = 'none';
+                    if (homepageWrapper) homepageWrapper.style.display = 'none';
+                    
+                    console.log('📍 Mostrando SPD...');
+                    if (spdSection) {
+                        spdSection.style.display = 'block';
+                        console.log('✅ SECCIÓN SPD VISIBLE');
+                    } else {
+                        console.error('❌ #spd-section NO ENCONTRADO');
+                    }
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    document.body.classList.remove('show-directiva', 'show-credenciales');
+                    document.body.classList.add('show-spd');
+                    
+                    console.log('✅ handleSPD() COMPLETADA');
+                } catch (error) {
+                    console.error('❌ ERROR en handleSPD():', error);
+                }
+            },
+            
+            showHomepage: function() {
+                console.log('🏠 showHomepage() EJECUTADA (PROTEGIDA)');
+                const homepageSection = document.getElementById('homepage-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                const credencialesSection = document.getElementById('credenciales-section');
+                const spdSection = document.getElementById('spd-section');
+                
+                if (homepageSection) homepageSection.style.display = 'block';
+                if (homepageWrapper) homepageWrapper.style.display = 'block';
+                if (contenidoSection) contenidoSection.style.display = 'none';
+                if (mainSection) mainSection.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'none';
+                if (spdSection) spdSection.style.display = 'none';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-directiva', 'show-credenciales', 'show-spd');
+            },
+            
+            openNewLink: function(url) {
+                console.log('🔗 openNewLink() EJECUTADA (PROTEGIDA):', url);
+                window.open(url, '_blank');
+            },
+            
+            handleDirectiva: function() {
+                console.log('📋 handleDirectiva() EJECUTADA (PROTEGIDA)');
+                const homepageSection = document.getElementById('homepage-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const credencialesSection = document.getElementById('credenciales-section');
+                const spdSection = document.getElementById('spd-section');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                
+                if (homepageSection) homepageSection.style.display = 'none';
+                if (homepageWrapper) homepageWrapper.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'none';
+                if (spdSection) spdSection.style.display = 'none';
+                if (contenidoSection) contenidoSection.style.display = 'block';
+                if (mainSection) mainSection.style.display = 'block';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-credenciales', 'show-spd');
+                document.body.classList.add('show-directiva');
+            },
+            
+            handleCredenciales: function() {
+                console.log('🆔 handleCredenciales() EJECUTADA (PROTEGIDA)');
+                const homepageSection = document.getElementById('homepage-section');
+                const homepageWrapper = document.getElementById('homepage-content-wrapper');
+                const contenidoSection = document.getElementById('contenido');
+                const mainSection = document.getElementById('main-section');
+                const spdSection = document.getElementById('spd-section');
+                const credencialesSection = document.getElementById('credenciales-section');
+                
+                if (homepageSection) homepageSection.style.display = 'none';
+                if (homepageWrapper) homepageWrapper.style.display = 'none';
+                if (contenidoSection) contenidoSection.style.display = 'none';
+                if (mainSection) mainSection.style.display = 'none';
+                if (spdSection) spdSection.style.display = 'none';
+                if (credencialesSection) credencialesSection.style.display = 'block';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.classList.remove('show-directiva', 'show-spd');
+                document.body.classList.add('show-credenciales');
+            },
+            
+            volverAlIndex: function(event) {
+                if (event) event.preventDefault();
+                console.log('⬅️ volverAlIndex() EJECUTADA (PROTEGIDA)');
+                FUNCIONES_PROTEGIDAS.showHomepage();
+            },
+            
+            mostrarComponentes: function() {
+                console.log('📦 mostrarComponentes() EJECUTADA (PROTEGIDA)');
+                const vistaPrincipal = document.getElementById('vistaPrincipal');
+                const vistaComponentes = document.getElementById('vistaComponentes');
+                if (vistaPrincipal) vistaPrincipal.style.display = 'none';
+                if (vistaComponentes) {
+                    vistaComponentes.style.display = 'block';
+                    vistaComponentes.classList.add('active');
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+            
+            volverAPrincipal: function() {
+                console.log('⬅️ volverAPrincipal() EJECUTADA (PROTEGIDA)');
+                const vistaPrincipal = document.getElementById('vistaPrincipal');
+                const vistaComponentes = document.getElementById('vistaComponentes');
+                if (vistaPrincipal) vistaPrincipal.style.display = 'block';
+                if (vistaComponentes) {
+                    vistaComponentes.style.display = 'none';
+                    vistaComponentes.classList.remove('active');
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+            
+            cerrarModal: function() {
+                console.log('❌ cerrarModal() EJECUTADA (PROTEGIDA)');
+                const modal = document.getElementById('modalRequisitos');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        };
+        
+        // Funciones adicionales (delegando a las protegidas)
+        FUNCIONES_PROTEGIDAS.showDirectiva = FUNCIONES_PROTEGIDAS.handleDirectiva;
+        FUNCIONES_PROTEGIDAS.showCredenciales = FUNCIONES_PROTEGIDAS.handleCredenciales;
+        FUNCIONES_PROTEGIDAS.volverASPD = FUNCIONES_PROTEGIDAS.volverAPrincipal;
+        FUNCIONES_PROTEGIDAS.handleValores = function() {
+            const valoresSection = document.querySelector('#valores-section, #tramites-principales');
+            if (valoresSection) valoresSection.scrollIntoView({ behavior: 'smooth' });
+        };
+        FUNCIONES_PROTEGIDAS.handleValorPlan = function() {
+            FUNCIONES_PROTEGIDAS.openNewLink('https://d6.short.gy/Pl4n');
+        };
+        FUNCIONES_PROTEGIDAS.handleCerofilas = function() {
+            alert('Función Cerofilas en desarrollo');
+        };
+        FUNCIONES_PROTEGIDAS.handleCredencialIndependiente = FUNCIONES_PROTEGIDAS.handleCredenciales;
+        FUNCIONES_PROTEGIDAS.handleBuscarCurso = function(url) {
+            FUNCIONES_PROTEGIDAS.openNewLink(url);
+        };
+        FUNCIONES_PROTEGIDAS.mostrarRequisitos = function(tipo) {
+            console.log('📋 mostrarRequisitos():', tipo);
+            const modal = document.getElementById('modalRequisitos');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+        FUNCIONES_PROTEGIDAS.mostrarAsignaturas = function() {
+            console.log('📚 mostrarAsignaturas()');
+            const modal = document.getElementById('modalRequisitos');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+        
+        // FORZAR las funciones en window (NO PUEDEN SER SOBRESCRITAS)
+        Object.keys(FUNCIONES_PROTEGIDAS).forEach(function(nombreFuncion) {
+            try {
+                // Intentar usar defineProperty para protección máxima
+                Object.defineProperty(window, nombreFuncion, {
+                    value: FUNCIONES_PROTEGIDAS[nombreFuncion],
+                    writable: false,  // NO se puede sobrescribir
+                    configurable: false  // NO se puede reconfigurar
+                });
+                console.log('🛡️ ' + nombreFuncion + ' PROTEGIDA');
+            } catch (e) {
+                // Si defineProperty falla, usar asignación normal
+                window[nombreFuncion] = FUNCIONES_PROTEGIDAS[nombreFuncion];
+                console.log('⚠️ ' + nombreFuncion + ' asignada (sin protección)');
+            }
+        });
+        
+        console.log('🛡️ ==================== PROTECCIÓN COMPLETADA ====================');
+        console.log('✅ TODAS LAS FUNCIONES ESTÁN PROTEGIDAS Y LISTAS');
+        console.log('📱 Haz clic en el botón SPD para probar');
+        console.log('🛡️ ==============================================================');
+    })();
+    </script>
 
 </body>
 </html>
