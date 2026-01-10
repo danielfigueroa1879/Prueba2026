@@ -1,18 +1,17 @@
-// ==================== FUNCIONES DE NAVEGACIÓN Y SPD ====================
+// ==================== FUNCIONES DE NAVEGACIÓN (DISPONIBLES INMEDIATAMENTE) ====================
 
 /**
  * Función para manejar el botón/link SPD
- * Muestra la sección SPD integrada y oculta el contenido principal
  */
 function handleSPD() {
     console.log('🔵 handleSPD() ejecutada');
     
-    // Ocultar secciones principales
     const homepageSection = document.getElementById('homepage-section');
     const contenidoSection = document.getElementById('contenido');
     const mainSection = document.getElementById('main-section');
     const credencialesSection = document.getElementById('credenciales-section');
     const homepageWrapper = document.getElementById('homepage-content-wrapper');
+    const spdSection = document.getElementById('spd-section');
     
     if (homepageSection) homepageSection.style.display = 'none';
     if (contenidoSection) contenidoSection.style.display = 'none';
@@ -20,8 +19,6 @@ function handleSPD() {
     if (credencialesSection) credencialesSection.style.display = 'none';
     if (homepageWrapper) homepageWrapper.style.display = 'none';
     
-    // Mostrar sección SPD
-    const spdSection = document.getElementById('spd-section');
     if (spdSection) {
         spdSection.style.display = 'block';
         console.log('✅ Sección SPD mostrada');
@@ -29,10 +26,7 @@ function handleSPD() {
         console.error('❌ No se encontró la sección SPD');
     }
     
-    // Scroll al inicio
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Actualizar estado del body
     document.body.classList.remove('show-directiva', 'show-credenciales');
     document.body.classList.add('show-spd');
 }
@@ -43,31 +37,22 @@ function handleSPD() {
 function showHomepage() {
     console.log('🏠 showHomepage() ejecutada');
     
-    // Mostrar homepage
     const homepageSection = document.getElementById('homepage-section');
     const homepageWrapper = document.getElementById('homepage-content-wrapper');
-    
-    if (homepageSection) homepageSection.style.display = 'block';
-    if (homepageWrapper) homepageWrapper.style.display = 'block';
-    
-    // Ocultar otras secciones
     const contenidoSection = document.getElementById('contenido');
     const mainSection = document.getElementById('main-section');
     const credencialesSection = document.getElementById('credenciales-section');
     const spdSection = document.getElementById('spd-section');
     
+    if (homepageSection) homepageSection.style.display = 'block';
+    if (homepageWrapper) homepageWrapper.style.display = 'block';
     if (contenidoSection) contenidoSection.style.display = 'none';
     if (mainSection) mainSection.style.display = 'none';
     if (credencialesSection) credencialesSection.style.display = 'none';
     if (spdSection) spdSection.style.display = 'none';
     
-    // Scroll al inicio
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Actualizar estado del body
     document.body.classList.remove('show-directiva', 'show-credenciales', 'show-spd');
-    
-    console.log('✅ Homepage mostrada');
 }
 
 /**
@@ -79,22 +64,102 @@ function openNewLink(url) {
 }
 
 /**
- * Función para volver desde SPD al index
+ * Función para mostrar Directivas
  */
-function volverAlIndex(event) {
-    if (event) {
-        event.preventDefault();
-    }
-    console.log('⬅️ Volviendo al index desde SPD');
-    showHomepage();
+function handleDirectiva() {
+    console.log('📋 handleDirectiva() ejecutada');
+    
+    const homepageSection = document.getElementById('homepage-section');
+    const homepageWrapper = document.getElementById('homepage-content-wrapper');
+    const credencialesSection = document.getElementById('credenciales-section');
+    const spdSection = document.getElementById('spd-section');
+    const contenidoSection = document.getElementById('contenido');
+    const mainSection = document.getElementById('main-section');
+    
+    if (homepageSection) homepageSection.style.display = 'none';
+    if (homepageWrapper) homepageWrapper.style.display = 'none';
+    if (credencialesSection) credencialesSection.style.display = 'none';
+    if (spdSection) spdSection.style.display = 'none';
+    if (contenidoSection) contenidoSection.style.display = 'block';
+    if (mainSection) mainSection.style.display = 'block';
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.classList.remove('show-credenciales', 'show-spd');
+    document.body.classList.add('show-directiva');
+}
+
+function showDirectiva() {
+    handleDirectiva();
 }
 
 /**
- * Función para mostrar la vista de componentes SPD
+ * Función para mostrar Credenciales
  */
-function mostrarComponentes() {
-    console.log('📦 Mostrando componentes SPD');
+function handleCredenciales() {
+    console.log('🆔 handleCredenciales() ejecutada');
     
+    const homepageSection = document.getElementById('homepage-section');
+    const homepageWrapper = document.getElementById('homepage-content-wrapper');
+    const contenidoSection = document.getElementById('contenido');
+    const mainSection = document.getElementById('main-section');
+    const spdSection = document.getElementById('spd-section');
+    const credencialesSection = document.getElementById('credenciales-section');
+    
+    if (homepageSection) homepageSection.style.display = 'none';
+    if (homepageWrapper) homepageWrapper.style.display = 'none';
+    if (contenidoSection) contenidoSection.style.display = 'none';
+    if (mainSection) mainSection.style.display = 'none';
+    if (spdSection) spdSection.style.display = 'none';
+    if (credencialesSection) credencialesSection.style.display = 'block';
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.classList.remove('show-directiva', 'show-spd');
+    document.body.classList.add('show-credenciales');
+}
+
+function showCredenciales() {
+    handleCredenciales();
+}
+
+/**
+ * Otras funciones de navegación
+ */
+function handleValores() {
+    console.log('💰 handleValores() ejecutada');
+    const valoresSection = document.querySelector('#valores-section, #tramites-principales');
+    if (valoresSection) {
+        valoresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function handleValorPlan() {
+    console.log('📊 handleValorPlan() ejecutada');
+    openNewLink('https://d6.short.gy/Pl4n');
+}
+
+function handleCerofilas() {
+    console.log('🔢 handleCerofilas() ejecutada');
+    alert('Función Cerofilas en desarrollo');
+}
+
+function handleCredencialIndependiente() {
+    console.log('🆔 handleCredencialIndependiente() ejecutada');
+    handleCredenciales();
+}
+
+function handleBuscarCurso(url) {
+    console.log('🔍 handleBuscarCurso() ejecutada:', url);
+    openNewLink(url);
+}
+
+function volverAlIndex(event) {
+    if (event) event.preventDefault();
+    console.log('⬅️ volverAlIndex() ejecutada');
+    showHomepage();
+}
+
+function mostrarComponentes() {
+    console.log('📦 mostrarComponentes() ejecutada');
     const vistaPrincipal = document.getElementById('vistaPrincipal');
     const vistaComponentes = document.getElementById('vistaComponentes');
     
@@ -103,17 +168,11 @@ function mostrarComponentes() {
         vistaComponentes.style.display = 'block';
         vistaComponentes.classList.add('active');
     }
-    
-    // Scroll al inicio
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/**
- * Función para volver a la vista principal SPD
- */
 function volverAPrincipal() {
-    console.log('⬅️ Volviendo a vista principal SPD');
-    
+    console.log('⬅️ volverAPrincipal() ejecutada');
     const vistaPrincipal = document.getElementById('vistaPrincipal');
     const vistaComponentes = document.getElementById('vistaComponentes');
     
@@ -122,22 +181,70 @@ function volverAPrincipal() {
         vistaComponentes.style.display = 'none';
         vistaComponentes.classList.remove('active');
     }
-    
-    // Scroll al inicio
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Asegurarse de que las funciones estén disponibles globalmente
-if (typeof window !== 'undefined') {
-    window.handleSPD = handleSPD;
-    window.showHomepage = showHomepage;
-    window.openNewLink = openNewLink;
-    window.volverAlIndex = volverAlIndex;
-    window.mostrarComponentes = mostrarComponentes;
-    window.volverAPrincipal = volverAPrincipal;
+function volverASPD() {
+    console.log('⬅️ volverASPD() ejecutada');
+    volverAPrincipal();
 }
 
-console.log('✅ Funciones de navegación y SPD cargadas');
+function cerrarModal() {
+    console.log('❌ cerrarModal() ejecutada');
+    const modal = document.getElementById('modalRequisitos');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    const bannerBlanco = document.getElementById('banner');
+    const bannerVerde = document.querySelector('.desktop-navbar');
+    if (bannerBlanco) bannerBlanco.style.display = '';
+    if (bannerVerde) bannerVerde.style.display = '';
+}
+
+function mostrarRequisitos(tipo) {
+    console.log('📋 mostrarRequisitos() ejecutada para:', tipo);
+    const modal = document.getElementById('modalRequisitos');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function mostrarAsignaturas() {
+    console.log('📚 mostrarAsignaturas() ejecutada');
+    const modal = document.getElementById('modalRequisitos');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Exportar TODAS las funciones a window inmediatamente
+window.handleSPD = handleSPD;
+window.showHomepage = showHomepage;
+window.openNewLink = openNewLink;
+window.handleDirectiva = handleDirectiva;
+window.showDirectiva = showDirectiva;
+window.handleCredenciales = handleCredenciales;
+window.showCredenciales = showCredenciales;
+window.handleValores = handleValores;
+window.handleValorPlan = handleValorPlan;
+window.handleCerofilas = handleCerofilas;
+window.handleCredencialIndependiente = handleCredencialIndependiente;
+window.handleBuscarCurso = handleBuscarCurso;
+window.volverAlIndex = volverAlIndex;
+window.mostrarComponentes = mostrarComponentes;
+window.volverAPrincipal = volverAPrincipal;
+window.volverASPD = volverASPD;
+window.cerrarModal = cerrarModal;
+window.mostrarRequisitos = mostrarRequisitos;
+window.mostrarAsignaturas = mostrarAsignaturas;
+
+console.log('✅ Todas las funciones de navegación cargadas y disponibles');
+console.log('✅ Funciones disponibles:', Object.keys(window).filter(k => k.startsWith('handle') || k.startsWith('show') || k.startsWith('mostrar') || k.startsWith('volver') || k === 'openNewLink' || k === 'cerrarModal'));
+
+// ==================== CÓDIGO ORIGINAL DEL INDEX.JS ====================
 // ==================== INDEX BLOQUE 1 ====================
 // Manejar submenús de la barra verde
     document.addEventListener('DOMContentLoaded', function() {
