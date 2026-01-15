@@ -10,7 +10,7 @@
  * Muestra la vista de componentes DENTRO de spd.html
  * Oculta vistaPrincipal y muestra vistaComponentes
  */
-function mostrarComponentes() {
+function mostrarComponentes_SPD() {
     const vistaPrincipal = document.getElementById('vistaPrincipal');
     const vistaComponentes = document.getElementById('vistaComponentes');
     
@@ -25,7 +25,7 @@ function mostrarComponentes() {
  * Vuelve a la vista principal de SPD
  * Oculta vistaComponentes y muestra vistaPrincipal
  */
-function volverASPD() {
+function volverASPD_SPD() {
     const vistaPrincipal = document.getElementById('vistaPrincipal');
     const vistaComponentes = document.getElementById('vistaComponentes');
     
@@ -40,12 +40,12 @@ function volverASPD() {
  * Muestra modal con asignaturas de capacitación
  * Abre EN LA MISMA PÁGINA de spd.html
  */
-function mostrarAsignaturas() {
-    const modal = document.getElementById('modalRequisitos');
+function mostrarAsignaturas_SPD() {
+    const modal = document.getElementById('modalRequisitos_SPD');
     if (!modal) return;
     
-    const titulo = document.getElementById('modalTitulo');
-    const contenido = document.getElementById('modalContenido');
+    const titulo = document.getElementById('modalTitulo_SPD');
+    const contenido = document.getElementById('modalContenido_SPD');
     
     titulo.textContent = 'ASIGNATURAS DE CAPACITACIÓN';
     
@@ -157,7 +157,7 @@ function mostrarAsignaturas() {
             </p>
         </div>
         
-        <button onclick="descargarModalPDF('asignaturas')" class="btn-pdf-modal mt-6">
+        <button onclick="descargarModalPDF_SPD('asignaturas')" class="btn-pdf-modal mt-6">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
@@ -178,12 +178,12 @@ function mostrarAsignaturas() {
 // ==========================================================================
 // FUNCIÓN PARA MOSTRAR REQUISITOS EN MODAL
 // ==========================================================================
-function mostrarRequisitos(tipo) {
+function mostrarRequisitos_SPD(tipo) {
     console.log('🚀 MOSTRAR REQUISITOS LLAMADO:', tipo);
     
-    const modal = document.getElementById('modalRequisitos');
-    const titulo = document.getElementById('modalTitulo');
-    const contenido = document.getElementById('modalContenido');
+    const modal = document.getElementById('modalRequisitos_SPD');
+    const titulo = document.getElementById('modalTitulo_SPD');
+    const contenido = document.getElementById('modalContenido_SPD');
     
     console.log('✅ Modal encontrado?', !!modal);
     console.log('✅ Título encontrado?', !!titulo);
@@ -398,7 +398,7 @@ function generarContenidoVigilante() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('vigilante')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('vigilante')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -478,7 +478,7 @@ function generarContenidoGuardia() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('guardia')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('guardia')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -559,7 +559,7 @@ function generarContenidoPortero() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('portero')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('portero')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -596,7 +596,7 @@ function generarContenidoJefe() {
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado de licencia de enseñanza media o su equivalente, emitido por el Ministerio de Educación. Los certificados de estudios de personas extranjeras deberán presentarse debidamente legalizados o apostillados, según corresponda.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado de antecedentes expedido en los términos del inciso final del artículo 38 de la Ley N°18.216, que acredite no haber sido condenado por crimen, simple delito o actos de violencia intrafamiliar de competencia de los jueces de familia, de acuerdo con la ley N°20.066, de una antigüedad no superior a 30 días contados desde su emisión.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Declaración jurada simple de no haber sido acusado por alguna de las conductas punibles establecidas en las leyes y disposiciones que se indican en el artículo 46 N°6 de la Ley N°21.659.</li>
-                    <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado que acredite que la persona no dejó de pertenecer a las Fuerzas Armadas, de Orden y Seguridad Pública y Gendarmería de Chile, producto de una sanción o medida disciplinaria, salvo que los hechos que hayan originado la medida hayan sido desestimados por sentencia judicial, emitido por la institución respectiva. En caso de no haber pertenecido a las referidas instituciones, deberá adjuntar una declaración jurada que señale lo anterior.</li>
+                    <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado que acredite que la persona no dejó de pertenecer a las Fuerzas Armadas, de Orden y Seguridad Pública y Gendarmería de Chile, producto de una sanción o medida disciplinaria, salvo que los hechos que hayan originado la medida hayan sido desestimados por sentencia judicial, emitido por la institución respective. En caso de no haber pertenecido a las referidas instituciones, deberá adjuntar una declaración jurada que señale lo anterior.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado emitido por la Subsecretaría de Prevención del Delito que acredite no haber sido sancionado en los últimos cinco años por alguna de las infracciones gravísimas o graves establecidas en la ley N°21.659.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Declaración jurada simple de no haber sido sancionado conforme a la ley N°19.327, de derechos y deberes en los espectáculos de fútbol profesional, y su reglamento.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado emitido por la institución a la que perteneció, Carabineros de Chile, autoridades marítima o aeronáutica o por el Ministerio de Seguridad Pública, que acredite que la persona no ha ejercido funciones de supervisión, control o fiscalización en seguridad privada durante los últimos dos años anteriores a la solicitud de autorización, si procediere. En caso de no haber pertenecido a las referidas instituciones, deberá adjuntar una declaración jurada que señale lo anterior.</li>
@@ -641,7 +641,7 @@ function generarContenidoJefe() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('jefe')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('jefe')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -678,7 +678,7 @@ function generarContenidoAsesor() {
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado de licencia de enseñanza media o su equivalente, emitido por el Ministerio de Educación. Los certificados de estudios de personas extranjeras deberán presentarse debidamente legalizados o apostillados, según corresponda.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado de antecedentes expedido en los términos del inciso final del artículo 38 de la Ley N°18.216, que acredite no haber sido condenado por crimen, simple delito o actos de violencia intrafamiliar de competencia de los jueces de familia, de acuerdo con la ley N°20.066, de una antigüedad no superior a 30 días contados desde su emisión.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Declaración jurada simple de no haber sido acusado por alguna de las conductas punibles establecidas en las leyes y disposiciones que se indican en el artículo 46 N°6 de la Ley N°21.659.</li>
-                    <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado que acredite que la persona no dejó de pertenecer a las Fuerzas Armadas, de Orden y Seguridad Pública y Gendarmería de Chile, producto de una sanción o medida disciplinaria, salvo que los hechos que hayan originado la medida hayan sido desestimados por sentencia judicial, emitido por la institución respectiva. En caso de no haber pertenecido a las referidas instituciones, deberá adjuntar una declaración jurada que señale lo anterior.</li>
+                    <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado que acredite que la persona no dejó de pertenecer a las Fuerzas Armadas, de Orden y Seguridad Pública y Gendarmería de Chile, producto de una sanción o medida disciplinaria, salvo que los hechos que hayan originado la medida hayan sido desestimados por sentencia judicial, emitido por la institución respectiva. En caso de no haber pertenecido a las referidas institutions, deberá adjuntar una declaración jurada que señale lo anterior.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado emitido por la Subsecretaría de Prevención del Delito que acredite no haber sido sancionado en los últimos cinco años por alguna de las infracciones gravísimas o graves establecidas en la ley N°21.659.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Declaración jurada simple de no haber sido sancionado conforme a la ley N°19.327, de derechos y deberes en los espectáculos de fútbol profesional, y su reglamento.</li>
                     <li class="requisito-item-componentes" style="text-align: justify;">✓ Certificado emitido por la institución a la que perteneció, Carabineros de Chile, autoridades marítima o aeronáutica o por el Ministerio de Seguridad Pública, que acredite que la persona no ha ejercido funciones de supervisión, control o fiscalización en seguridad privada durante los últimos dos años anteriores a la solicitud de autorización, si procediere. En caso de no haber pertenecido a las referidas instituciones, deberá adjuntar una declaración jurada que señale lo anterior.</li>
@@ -721,7 +721,7 @@ function generarContenidoAsesor() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('asesor')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('asesor')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -802,7 +802,7 @@ function generarContenidoSupervisor() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('supervisor')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('supervisor')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -992,7 +992,7 @@ function generarContenidoCapacitador() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('capacitador')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('capacitador')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1071,7 +1071,7 @@ function generarContenidoEncargado() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('encargado')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('encargado')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1150,7 +1150,7 @@ function generarContenidoEncargadoArmas() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('encargado-armas')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('encargado-armas')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1229,7 +1229,7 @@ function generarContenidoTecnico() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('tecnico')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('tecnico')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1308,7 +1308,7 @@ function generarContenidoOperador() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('operador')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('operador')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1387,7 +1387,7 @@ function generarContenidoInstalador() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('instalador')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('instalador')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1631,7 +1631,7 @@ function generarContenidoEmpresa() {
                 </p>
             </div>
 
-            <button onclick="descargarModalPDF('empresa')" class="btn-pdf-modal">
+            <button onclick="descargarModalPDF_SPD('empresa')" class="btn-pdf-modal">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -1671,10 +1671,10 @@ function generarContenidoGenerico(tipo) {
  * Descarga el contenido del modal como PDF
  * @param {string} tipo - Tipo de componente (vigilante, guardia, etc.)
  */
-function descargarModalPDF(tipo) {
+function descargarModalPDF_SPD(tipo) {
     // Obtener el título del modal
-    const titulo = document.getElementById('modalTitulo').textContent;
-    const contenido = document.getElementById('modalContenido');
+    const titulo = document.getElementById('modalTitulo_SPD').textContent;
+    const contenido = document.getElementById('modalContenido_SPD');
     
     // Crear un contenedor temporal con el contenido
     const contenedorTemp = document.createElement('div');
@@ -1804,9 +1804,9 @@ function descargarModalPDF(tipo) {
 /**
  * Cierra el modal de forma simple y eficiente
  */
-function cerrarModal() {
-    const modal = document.getElementById('modalRequisitos');
-    const contenido = document.getElementById('modalContenido');
+function cerrarModal_SPD() {
+    const modal = document.getElementById('modalRequisitos_SPD');
+    const contenido = document.getElementById('modalContenido_SPD');
     
     if (!modal) {
         console.error('❌ Modal no encontrado');
@@ -1836,8 +1836,8 @@ function cerrarModal() {
 /**
  * Cierra el modal visualmente (alias para compatibilidad)
  */
-function cerrarModalVisualmente() {
-    cerrarModal();
+function cerrarModalVisualmente_SPD() {
+    cerrarModal_SPD();
 }
 
 // ==========================================================================
@@ -1848,16 +1848,16 @@ function cerrarModalVisualmente() {
  * Inicializa todos los event listeners del sistema de modales
  * SOLO se ejecuta una vez para evitar duplicación
  */
-let modalListenersInitialized = false;
+let modalListenersInitialized_SPD = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     // Evitar duplicación de listeners
-    if (modalListenersInitialized) return;
-    modalListenersInitialized = true;
+    if (modalListenersInitialized_SPD) return;
+    modalListenersInitialized_SPD = true;
     
-    const modal = document.getElementById('modalRequisitos');
+    const modal = document.getElementById('modalRequisitos_SPD');
     if (!modal) {
-        console.warn('⚠️ Modal modalRequisitos no encontrado');
+        console.warn('⚠️ Modal modalRequisitos_SPD no encontrado');
         return;
     }
     
@@ -1865,16 +1865,16 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.addEventListener('click', function(e) {
         // Solo cerrar si el click es en el fondo, no en el contenido
         if (e.target === modal) {
-            cerrarModal();
+            cerrarModal_SPD();
         }
     });
     
     // Cerrar modal con tecla ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' || e.key === 'Esc') {
-            const activeModal = document.querySelector('#modalRequisitos.active');
+            const activeModal = document.querySelector('#modalRequisitos_SPD.active');
             if (activeModal) {
-                cerrarModal();
+                cerrarModal_SPD();
             }
         }
     });
