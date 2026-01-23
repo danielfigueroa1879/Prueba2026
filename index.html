@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma O.S.10 Coquimbo</title>
+    <meta name="description" content="Plataforma de trámites y servicios de seguridad privada. Requisitos para Directivas de Funcionamiento, Credenciales y más. OS10 Coquimbo.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff"/>
+    <meta property="og:title" content="Plataforma OS10 Coquimbo">
+    <meta property="og:description" content="Plataforma de trámites y servicios de seguridad privada. Requisitos, credenciales y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://os10coquimbo.netlify.app/">
+    <meta property="og:image" content="https://os10coquimbo.netlify.app/assets/images/icon-512x512.png">
+    <meta property="og:image:secure_url" content="https://os10coquimbo.netlify.app/assets/images/icon-512x512.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:site_name" content="OS10 Coquimbo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Plataforma OS10 Coquimbo">
+    <meta name="twitter:description" content="Plataforma de trámites y servicios de seguridad privada. Requisitos, credenciales y más.">
+    <meta name="twitter:image" content="https://os10coquimbo.netlify.app/assets/images/icon-512x512.png">
+    
+    <!-- Schema.org markup para mostrar logo en Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GovernmentOrganization",
+      "name": "OS10 Coquimbo - Oficina de Seguridad Pública",
+      "alternateName": "OS10 Coquimbo",
+      "url": "https://os10coquimbo.netlify.app",
+      "logo": "https://os10coquimbo.netlify.app/assets/images/icon-512x512.png",
+      "image": "https://os10coquimbo.netlify.app/assets/images/icon-512x512.png",
+      "description": "Plataforma de trámites y servicios de seguridad privada. Requisitos para Directivas de Funcionamiento, Credenciales y más. OS10 Coquimbo.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Coquimbo",
+        "addressRegion": "Región de Coquimbo",
+        "addressCountry": "CL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Atención al público",
+        "availableLanguage": "Spanish"
+      },
+      "parentOrganization": {
+        "@type": "GovernmentOrganization",
+        "name": "Carabineros de Chile"
+      }
+    }
+    </script>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="application-name" content="Directivas OS10">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Directivas OS10">
+    
+    <!-- Favicons y Apple Touch Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="assets/images/icon-512x512.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&family=Mate+SC&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/images/foto%20(1).webp" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="stylesheet" href="assets/css/carousel.css">
+        <style>
+html {
+    scroll-behavior: smooth;
+}
+.homepage-section { background-image: url('assets/images/foto%20(1).webp'); background-size: cover; background-position: center center; min-height: 100vh; transition: background-image 5.5s ease-in-out; }
+body.homepage { background-color: white; background-image: none; }
+.pwa-install-banner { position: fixed; top: 64px; left: 0; right: 0; background-color: #f1f5f9; border-bottom: 2px solid #3b82f6; padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 1100; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); transition: all 0.5s ease-in-out; transform: translateY(-100%); opacity: 0; pointer-events: none; }
+.pwa-install-banner.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.submenu-arrow { transition: transform 0.3s ease; }
+.has-submenu.submenu-open .submenu-arrow { transform: rotate(90deg); }
+#suspension-notice {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: rgba(251, 192, 45, 0.83);
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    z-index: 1300;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    backdrop-filter: blur(15px);
+}
+#suspension-notice.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+#suspension-notice.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+@media (max-width: 768px) {
+    #suspension-notice {
+        font-size: 17px;
+        padding: 8px 13px;
+    }
+}
+@media (min-width: 1024px) {
+    .asesor-megamenu {
+        border-radius: 0 !important;
+    }
+}
+
+/* ===== BOTÓN CERRAR MENÚ MÓVIL ===== */
+.dropdown-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.close-mobile-menu-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.close-mobile-menu-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.close-mobile-menu-btn svg {
+    stroke: #374151;
+}
+
+
+/* ===== BARRA DE NAVEGACIÓN VERDE (SOLO PC) ===== */
+.desktop-navbar {
+    display: none;
+    background: #237c4e;
+    box-shadow: 0 4px 12px rgba(35, 124, 78, 0.3);
+    border-bottom: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    font-family: Arial, sans-serif;
+    height: 29px;
+    max-height: 29px;
+}
+
+/* ===== REGLAS PARA MÓVIL: Mostrar hamburguesa, ocultar barra verde ===== */
+@media (max-width: 1023px) {
+    .desktop-navbar {
+        display: none !important;
+    }
+    #mobile-menu-btn {
+        display: block !important;
+    }
+}
+
+/* ===== REGLAS PARA PC: Ocultar hamburguesa, mostrar barra verde ===== */
+@media (min-width: 1024px) {
+    .desktop-navbar {
+        display: block !important;
+    }
+    #mobile-menu-btn {
+        display: none !important;
+    }
+    
+    /* Foto pantalla completa */
+    .homepage-section {
+        margin-top: 28px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        min-height: 100vh !important;
+        height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important; /* Centra los botones */
+        position: relative !important;
+    }
+    
+    .homepage-section > div.relative.z-10:first-of-type {
+        position: absolute !important;
+        top: 50px !important; /* Subido aún más en PC */
+        left: 0 !important;
+        right: 0 !important;
+        padding: 0 1rem !important;
+        z-index: 20 !important;
+    }
+    
+    /* Margen negativo ajustado para eliminar espacio en blanco */
+    #homepage-content-wrapper {
+        padding-top: 0 !important;
+        margin-top: -160px !important;     /* Aumentado para subir la sección y eliminar el blanco */
+        position: relative;
+        z-index: 10;
+    }
+    
+    /* ===== SOLUCIÓN REFORZADA: Ocultar homepage cuando se muestra directiva o credenciales ===== */
+    body.show-directiva #homepage-section,
+    body.show-credenciales #homepage-section {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    
+    body.show-directiva #homepage-content-wrapper,
+    body.show-credenciales #homepage-content-wrapper {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    
+    /* Asegurar que contenido de directiva/credenciales se muestre correctamente */
+    body.show-directiva #contenido,
+    body.show-credenciales #contenido {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        left: auto !important;
+    }
+    
+    body.show-directiva #main-section,
+    body.show-credenciales #credenciales-section {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    .carousel-container.mt-16 {
+        margin-top: 0 !important;
+    }
+    
+    /* TRAMITES PRINCIPALES - NO MODIFICAR */
+    #tramites-principales {
+        padding-top: 2rem !important;
+        margin-top: 0 !important;
+    }
+    #tramites-principales.py-16,
+    #tramites-principales.py-24,
+    #tramites-principales.md\:py-24 {
+        padding-top: 1rem !important;
+        padding-bottom: 2rem !important;
+    }
+    #tramites-principales > div {
+        padding-top: 0 !important;
+    }
+    #tramites-principales .text-center {
+        margin-top: 0 !important;
+        padding-top: 1.5rem !important;
+    }
+    #tramites-principales .text-center > div {
+        margin-top: 0 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    #tramites-principales .text-center p {
+        margin-top: 0.5rem !important;
+    }
+    #tramites-principales .carousel-card {
+        padding: 1rem !important;
+    }
+    #tramites-principales .carousel-container {
+        margin-top: 1.0rem !important;
+    }
+}
+
+.desktop-navbar-container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    height: 29px;
+    max-height: 29px;
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+.desktop-navbar-container::-webkit-scrollbar {
+    height: 3px;
+}
+
+.desktop-navbar-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.desktop-navbar-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+    border-radius: 10px;
+}
+
+.desktop-nav-items {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.desktop-nav-item {
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 7.5px 14px 7.5px 14px; /* ALTURA COMPLETA: 7.5 + 14 + 7.5 = 29px (altura del banner) */
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* CENTRADO HORIZONTAL */
+    gap: 4px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    flex-shrink: 0;
+    height: 29px; /* Altura fija igual al banner */
+    max-height: 29px; /* AJUSTADO: Coincide con altura del banner */
+}
+
+/* PUENTE INVISIBLE VERTICAL - Conecta el item del banner con el submenú */
+.desktop-nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: -16px; /* MUY AMPLIADO: Se extiende 16px hacia abajo */
+    left: 0;
+    right: 0;
+    height: 16px; /* MUY AMPLIADO: 16px de zona segura */
+    background: transparent;
+    pointer-events: auto;
+    z-index: 1000;
+}
+
+.desktop-nav-item:hover {
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+}
+
+.desktop-chevron {
+    width: 11px;
+    height: 11px;
+    stroke-width: 2.5;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.desktop-nav-item:hover .desktop-chevron {
+    transform: rotate(90deg);
+}
+
+.desktop-submenu {
+    position: fixed;
+    background: #237c4e;
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 0.4rem;
+    min-width: 220px;
+    max-width: 320px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
+    z-index: 1001;
+    border: none;
+    font-family: Arial, sans-serif;
+    overflow: visible; /* CRÍTICO: Los items con márgenes negativos aún se consideran dentro */
+}
+.desktop-submenu-item {
+    display: block;
+    width: calc(100% + 0.8rem); /* Ancho completo */
+    padding: 6px 0.4rem; /* Mismo padding que el submenu padre */
+    margin-left: -0.4rem; /* Compensa el padding del submenu */
+    margin-right: -0.4rem;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center; /* CENTRADO DEL TEXTO */
+    border-radius: 0;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 3px;
+    max-height: 28px;
+}
+
+.desktop-submenu-item:hover {
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+    transform: translateX(0px); /* SIN DESPLAZAMIENTO para mantener ancho completo */
+}
+
+.desktop-submenu-title {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 15px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 0.4rem; /* AJUSTADO: Mismo padding horizontal que el submenu */
+    margin-bottom: 3px;
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+    width: calc(100% + 0.8rem);
+    opacity: 0.95;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center; /* CENTRADO DEL TEXTO */
+}
+
+.desktop-submenu-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+    margin: 4px 0;
+}
+
+.desktop-submenu.mega {
+    min-width: 360px;
+    max-width: 380px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-left: 0px;
+}
+
+.desktop-submenu.mega::-webkit-scrollbar {
+    width: 5px;
+}
+
+.desktop-submenu.mega::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+    border-radius: 10px;
+}
+
+.desktop-submenu.mega::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2); /* Negro semi-transparente */
+    border-radius: 10px;
+}
+
+/* Estilos para submenús laterales (Normativa) */
+.desktop-submenu-container {
+    position: relative;
+    width: 100%;
+}
+
+.desktop-submenu-side {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #237c4e;
+    border-radius: 0px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 0.4rem;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
+    z-index: 1002;
+    margin-left: 0px; /* Para separarlo 5px a la derecha */
+    overflow: visible; /* CRÍTICO: Los items con márgenes negativos aún se consideran dentro */
+}
+
+.desktop-submenu-item-with-side:hover > .desktop-submenu-side {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.desktop-submenu-item-with-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 6px 0.4rem; /* Mismo padding que desktop-submenu-item */
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+    width: calc(100% + 0.8rem);
+    margin-bottom: 3px;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover oscuro para item-with-side */
+.desktop-submenu-item-with-side:hover {
+    background: rgba(0, 0, 0, 0.2); /* OSCURO: Negro semi-transparente */
+}
+
+/* Zona invisible que conecta el item con el submenú lateral */
+.desktop-submenu-item-with-side::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -16px; /* MUY AMPLIADO: Puente de 16px a la derecha */
+    bottom: 0;
+    width: 16px; /* MUY AMPLIADO: 16px de zona segura */
+    background: transparent;
+    z-index: 1003;
+}
+
+.megamenu-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.megamenu-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+}
+.section-card-hover {
+    transition: all 0.3s ease;
+}
+.section-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.gradient-card {
+    background: linear-gradient(135deg, var(--from-color) 0%, var(--to-color) 100%);
+}
+.scroll-container {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.1) transparent;
+} 
+.scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+.card-float-glow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-float-glow:hover {
+    transform: translateY(-5px);
+}
+  .hover-glow-blue:hover {
+    box-shadow: 0 0 15px 3px rgba(96, 165, 250, 0.4); 
+}
+.hover-glow-indigo:hover {
+    box-shadow: 0 0 15px 3px rgba(129, 140, 248, 0.4); 
+}
+.hover-glow-green:hover {
+    box-shadow: 0 0 15px 3px rgba(74, 222, 128, 0.4); 
+}
+.hover-glow-yellow:hover {
+    box-shadow: 0 0 15px 3px rgba(250, 204, 21, 0.4); 
+}
+
+.text-spd-alternante {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.text-spd-alternante .texto-spd {
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+    display: block;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.text-spd-alternante .texto-spd.fade-out {
+    opacity: 0;
+}
+
+@media (max-width: 639px) {
+    .homepage-btn {
+        width: 100% !important;
+        max-width: 390px !important;
+        min-width: 210px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 1rem !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+    .text-spd-alternante .texto-spd {
+        font-size: 0.75rem;
+        white-space: normal;
+        line-height: 1.2;
+    }
+}
+
+@media (min-width: 640px) {
+    .homepage-btn {
+        width: 230px !important;
+        min-width: 230px !important;
+        max-width: 230px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 1rem !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+    .text-spd-alternante .texto-spd {
+        font-size: 0.8rem;
+        white-space: normal;
+        line-height: 1.2;
+    }
+}
+
+.modal-requisitos-componentes {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999 !important;
+    overflow-y: auto;
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+}
+
+.modal-requisitos-componentes.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* ===== OCULTAR BANNER VERDE CUANDO EL MODAL ESTÁ ACTIVO ===== */
+body:has(.modal-requisitos-componentes.active) .desktop-navbar {
+    display: none !important;
+}
+
+/* Alternativa para navegadores sin soporte de :has() */
+.modal-requisitos-componentes.active ~ * .desktop-navbar,
+.desktop-navbar.hide-on-modal {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.modal-content-componentes {
+    background: white;
+    border-radius: 1rem;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: slideDownModal 0.3s ease-out;
+}
+
+@keyframes slideDownModal {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header-componentes {
+    background: linear-gradient(135deg, #146314 0%, #0d4a0d 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-title-componentes {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+.modal-body-componentes {
+    padding: 1.5rem;
+}
+
+.btn-cerrar-componentes {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.btn-cerrar-componentes:hover {
+    background: white;
+    color: #146314;
+}
+
+.requisito-section-componentes {
+    background: #f8fafc;
+    border-left: 4px solid #146314;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.requisito-item-componentes {
+    background: white;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.requisito-numero-componentes {
+    background: #146314;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.badge-componentes {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge-ley-componentes {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-decreto-componentes {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+@media (max-width: 768px) {
+    .modal-requisitos-componentes {
+        padding: 0.5rem;
+    }
+    
+    .modal-content-componentes {
+        margin: 0;
+        max-height: 96vh;
+        border-radius: 0.75rem;
+    }
+    
+    .modal-header-componentes {
+        padding: 1rem;
+        border-radius: 0.75rem 0.75rem 0 0;
+    }
+    
+    .modal-title-componentes {
+        font-size: 1.125rem;
+        line-height: 1.3;
+    }
+    
+    .modal-body-componentes {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .requisito-section-componentes {
+        padding: 0.875rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    .requisito-section-componentes h3 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .requisito-item-componentes {
+        padding: 0.625rem;
+        gap: 0.625rem;
+        margin: 0.375rem 0;
+    }
+    
+    .requisito-numero-componentes {
+        width: 22px;
+        height: 22px;
+        font-size: 0.7rem;
+    }
+    
+    .btn-cerrar-componentes {
+        padding: 0.375rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .badge-componentes {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.625rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .modal-requisitos-componentes {
+        padding: 0.25rem;
+    }
+    
+    .modal-content-componentes {
+        border-radius: 0.5rem;
+        max-height: 98vh;
+    }
+    
+    .modal-header-componentes {
+        padding: 0.875rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+    
+    .modal-title-componentes {
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+    
+    .modal-body-componentes {
+        padding: 0.875rem;
+        font-size: 0.8125rem;
+    }
+    
+    .requisito-section-componentes {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .requisito-section-componentes h3 {
+        font-size: 0.9375rem;
+        margin-bottom: 0.625rem;
+    }
+    
+    .requisito-item-componentes {
+        padding: 0.5rem;
+        gap: 0.5rem;
+        margin: 0.3rem 0;
+        font-size: 0.8125rem;
+    }
+    
+    .requisito-numero-componentes {
+        width: 20px;
+        height: 20px;
+        font-size: 0.65rem;
+    }
+    
+    .btn-cerrar-componentes {
+        padding: 0.3rem 0.875rem;
+        font-size: 0.75rem;
+    }
+    
+    .badge-componentes {
+        font-size: 0.65rem;
+        padding: 0.175rem 0.5rem;
+    }
+}
+
+.btn-pdf-modal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #dc2626;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+.btn-pdf-modal:hover {
+    background-color: #b91c1c !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5) !important;
+}
+.btn-pdf-modal:active {
+    transform: translateY(0);
+}
+.btn-pdf-modal svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.pdf-download-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.pdf-download-animation.active {
+    animation: pdfBounce 4.4s ease-in forwards;
+}
+
+.pdf-icon-animated {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(220, 38, 38, 0.5);
+}
+
+.pdf-icon-animated svg {
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+@keyframes pdfBounce {
+0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+5% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+15% {
+    opacity: 1;
+    transform: translate(-50%, -130%) scale(1.15);
+}
+25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+26% {
+    opacity: 1;
+    transform: translate(-30%, -100%) scale(0.9);
+}
+28% {
+    opacity: 1;
+    transform: translate(-10%, -130%) scale(0.8);
+}
+32% {
+    opacity: 0.9;
+    transform: translate(15%, -160%) scale(0.7);
+}
+38% {
+    opacity: 0.7;
+    transform: translate(35%, -200%) scale(0.55);
+}
+45% {
+    opacity: 0.4;
+    transform: translate(50%, -250%) scale(0.4);
+}
+62% {
+    opacity: 0.2;
+    transform: translate(60%, -300%) scale(0.25);
+}
+100% {
+    opacity: 0;
+    transform: translate(70%, -350%) scale(0.1);
+}
+}
+@media (max-width: 640px) {
+    .pdf-icon-animated {
+        width: 70px;
+        height: 70px;
+    }
+    .pdf-icon-animated svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+    </style>
+
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/icon-192x192.webp">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css?v=25">
+    <link rel="stylesheet" href="assets/css/search.css?v=1">
+    <link rel="stylesheet" href="assets/css/custom-styles.css">
+</head>
+<body class="homepage background-transition">
+    <!-- Notificación de recepción de documentos -->
+ <!--<div id="suspension-notice">
+    ✅👍 <strong>REAPERTURA DE SOLICITUDES DE CREDENCIALES:</strong> Desde el lunes 27 del presente mes, se reabrirá la recepción de nuevas solicitudes de credenciales.
+</div>-->
+    <div id="pwa-install-banner" class="pwa-install-banner md:hidden">
+        <span class="text-gray-800 text-sm font-medium">Instala la aplicación para un acceso más rápido.</span>
+        <div class="flex items-center space-x-2">
+            <button id="install-button" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-sm">Instalar</button>
+            <button id="close-install-banner" class="text-gray-500 hover:text-gray-800 p-1 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        </div>
+    </div>
+    <div id="banner" class="fixed top-0 left-0 right-0 z-[1200] bg-white/35 backdrop-blur-md border-b border-white/30 h-16 flex items-center justify-center shadow-sm">
+    <div class="w-full max-w-6xl mx-auto h-full flex items-center justify-between pl-3 pr-3 lg:px-4">
+        
+        <div class="flex items-center space-x-2">
+            <button id="mobile-menu-btn" class="p-2">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <a href="https://www.zosepcar.cl/OS10.php" onclick="showHomepage()" class="flex items-center space-x-1 h-10">
+                <img src="assets/images/logo-os10.png" alt="OS10 Logo" class="h-full" loading="lazy" width="41" height="41">
+            </a>
+        </div>
+
+        <div id="search-center-container" class="flex-grow flex justify-center px-4">
+        </div>
+
+        <div class="flex items-center space-x-2 banner-text-small">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            <span class="flex items-center"><span id="visit-counter" class="font-bold ml-1">--</span></span>
+        </div>
+    </div>
+</div>
+    
+    <!-- BARRA DE NAVEGACIÓN VERDE (SOLO PC) -->
+    <nav class="desktop-navbar">
+        <div class="desktop-navbar-container">
+            <div class="desktop-nav-items">
+                
+                <div class="desktop-nav-item">
+                    Normativa
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">⚖️ Leyes y Normativa</div>
+                        
+                        <!-- SECCIÓN 1: LEYES PRINCIPALES (7 Documentos) -->
+                        <div class="desktop-submenu-item desktop-submenu-item-with-side">
+                            <span>Leyes Principales</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <div class="desktop-submenu-side">
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=242302')">Constitución Política</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=30329')">Ley 18.961</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=30670')">Ley 19.303</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=7193')">D.L. 3.607 (1981)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1202067')">Ley 21.659</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1213672')">Reglamento 209</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1211115')">Reglamento 208</button>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 2: DECRETOS SUPREMOS (13 Documentos) -->
+                        <div class="desktop-submenu-item desktop-submenu-item-with-side">
+                            <span>Decretos Supremos</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <div class="desktop-submenu-side" style="max-height: 400px; overflow-y: auto;">
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/Decreto-261.pdf')">D.E. 261 (2020)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1200633')">D.E. 32 (2024)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1136545')">D. 298 (2019)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1130300')">D. 123 (2019)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1122982')">D. 1045 (2018)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1116274')">D. 867 (2017)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1069299')">D. 1814 (2014)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1055580')">D.S. 222 (2014)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1072929')">D.E. 1122 (1994)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=19870')">D.S. 41 (1996)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=18592')">D.S. 1772 (1995)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=18594')">D.S. 1773 (1994)</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=9081')">D.S. 93 (1985)</button>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 3: RESOLUCIONES (22 Documentos) -->
+                        <div class="desktop-submenu-item desktop-submenu-item-with-side">
+                            <span>Resoluciones</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <div class="desktop-submenu-side" style="max-height: 400px; overflow-y: auto;">
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_111.pdf')">1. Res. Exenta N° 111</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_112.pdf')">2. Res. Exenta N° 112</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_253.pdf')">3. Res. Exenta N° 253</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_59.pdf')">4. Res. Exenta N° 59</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_281.pdf')">5. Res. Exenta N° 281</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/RESOLUCION%20EXENTA%20NRO.50.pdf')">6. Res. Exenta N° 50</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_23.pdf')">7. Res. Exenta N° 23</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_133.pdf')">8. Res. Exenta N° 133</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2432.pdf')">9. Res. N° 2432</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_4070.pdf')">10. Res. N° 4070</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_20.pdf')">11. Res. N° 20</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2660.pdf')">12. Res. N° 2660</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_123.pdf')">13. Res. Exenta N° 123</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resol_4651.pdf')">14. Res. Exenta N° 4651</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2095.pdf')">15. Res. N° 2095</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2114.pdf')">16. Res. N° 2114</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2340.pdf')">17. Res. N° 2340</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_1763.pdf')">18. Res. N° 1763</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/Resol_3632.pdf')">19. Res. N° 3632</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_370.pdf')">20. Res. N° 370</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_80.pdf')">21. Res. Exenta N° 80</button>
+                                <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2522.pdf')">22. Res. N° 2522</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="desktop-nav-item">
+                    Componentes
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">👥 Tipos de Personal</div>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('vigilante')">Vigilante Privado</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('guardia')">Guardia de Seguridad</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('jefe')">Jefe de Seguridad</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('encargado')">Encargado de Seguridad</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('supervisor')">Supervisor de Seguridad</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('asesor')">Asesor de Seguridad</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('capacitador')">Capacitador</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('tecnico')">Técnico en Seguridad</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('instalador')">Instalador Técnico</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('operador')">Operador de Cámaras</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('portero')">Portero/Nochero/Rondín</button>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('encargadoArmas')">Encargado de Armas</button>
+                        <div class="desktop-submenu-divider"></div>
+                        <button class="desktop-submenu-item" onclick="mostrarRequisitos('empresa')">Empresas de Seguridad</button>
+                    </div>
+                </div>
+                
+                <div class="desktop-nav-item">
+                    Doc. Editables
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">📄 Documentos</div>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://dal5.short.gy/3st')">Estudio de seguridad</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://d6.short.gy/Pl4n')">Planes de seguridad</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://dal5.short.gy/M3')">Medidas de seguridad</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://docs.google.com/document/d/1MgInvryuu2EaxHMG_Zuy_1ZiuOTHr6jA/edit')">Directiva de funcionamiento</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://dal5.short.gy/H23wIF')">Solicitud simple</button>
+                    </div>
+                </div>
+                
+                <div class="desktop-nav-item">
+                    Mod. Decl. Jurada
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">✍️ Declaraciones</div>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://drive.google.com/file/d/1ObrdQqk_PPVTTRUKOzVmVDIxxlcZXRY6/view?usp=sharing')">Mod. Decl. jurada Pers. Nat.</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://drive.google.com/file/d/1X32qrNC0KeyR9bW2AVZ7VzZW6JZTSjl0/view?usp=sharing')">Mod. Decl. jurada para emp.</button>
+                    </div>
+                </div>
+                
+                <div class="desktop-nav-item">
+                    Manuales
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">📚 Guías Oficiales</div>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/manual_funcionamiento.pdf')">Manual de Funcionamiento</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/manual_capacitacion.pdf')">Manual de Capacitación</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://www.zosepcar.cl/content/OS10/manual_organizacion.pdf')">Manual de Organización</button>
+                    </div>
+                </div>
+                
+                <div class="desktop-nav-item">
+                    Capacitación
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">🎓 Información</div>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://drive.google.com/file/d/1RsYHWNpeNAmhTIO1kXOscZbia7Yepktp/view')">Empresas de Capacitación</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://dal5.short.gy/4S3')">Asesores</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://drive.google.com/file/d/1hpZrzhXCnGyLkFLRhj0FOY_zDwTEUIaN/view')">Capacitadores</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://drive.google.com/file/d/1swqlfBX5-7Ko-3u_H95pnGzbLkhUnrwy/view')">Valor Curso Formación</button>
+                        <button class="desktop-submenu-item" onclick="openNewLink('https://drive.google.com/file/d/1q2qS2AQUgoma8TmOppO9IOV1LX4PJS9Z/view')">Valor Curso Perfeccionamiento</button>
+                    </div>
+                </div>
+                
+                <div class="desktop-nav-item">
+                    Credenciales
+                    <svg class="desktop-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    <div class="desktop-submenu">
+                        <div class="desktop-submenu-title">🪪 Tipos</div>
+                        <button class="desktop-submenu-item" onclick="handleCredenciales()">Empresa</button>
+                        <button class="desktop-submenu-item" onclick="handleCredencialIndependiente()">Independiente</button>
+                    </div>
+                </div>
+                
+                <button class="desktop-nav-item" onclick="handleCerofilas()">Cerofilas</button>
+                <button class="desktop-nav-item" onclick="handleDirectiva()">Directiva</button>
+                <button class="desktop-nav-item" onclick="handleSPD()">SPD</button>
+                <button class="desktop-nav-item" onclick="handleValores()">Valores</button>
+                <button class="desktop-nav-item" onclick="handleValorPlan()">Valor Plan</button>
+                <button class="desktop-nav-item" onclick="openNewLink('https://maps.app.goo.gl/QUhujWbTF1FjDA7E6')">Ubicación</button>
+                <button class="desktop-nav-item" onclick="openNewLink('https://dal5.short.gy/R3')">Reclamo</button>
+            </div>
+        </div>
+    </nav>
+    <script>
+// Manejar submenús de la barra verde
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.desktop-nav-item');
+    let closeTimeout;
+    let currentOpenSubmenu = null;
+    
+    // Función para cerrar todos los submenús
+    function closeAllSubmenus() {
+        navItems.forEach(item => {
+            const submenu = item.querySelector('.desktop-submenu');
+            if (submenu) {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+                submenu.style.pointerEvents = 'none';
+            }
+        });
+        currentOpenSubmenu = null;
+    }
+    
+    navItems.forEach(item => {
+        const submenu = item.querySelector('.desktop-submenu');
+        if (!submenu) return;
+        
+        // Posicionar el submenú
+        function positionSubmenu() {
+            const rect = item.getBoundingClientRect();
+            const submenuWidth = submenu.offsetWidth;
+            const left = rect.left + (rect.width / 2) - (submenuWidth / 2);
+            
+            submenu.style.left = left + 'px';
+            submenu.style.top = '93px'; // POSICIÓN FIJA
+        }
+        
+        // Abrir submenú
+        function openSubmenu() {
+            clearTimeout(closeTimeout);
+            // Cerrar otros submenús primero
+            if (currentOpenSubmenu && currentOpenSubmenu !== submenu) {
+                currentOpenSubmenu.style.opacity = '0';
+                currentOpenSubmenu.style.visibility = 'hidden';
+                currentOpenSubmenu.style.pointerEvents = 'none';
+            }
+            positionSubmenu();
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+            submenu.style.pointerEvents = 'auto';
+            currentOpenSubmenu = submenu;
+        }
+        
+        // Cerrar submenú SOLO si sales completamente
+        function closeSubmenu() {
+            // Cancelar cualquier timeout existente primero
+            clearTimeout(closeTimeout);
+            closeTimeout = setTimeout(() => {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+                submenu.style.pointerEvents = 'none';
+                if (currentOpenSubmenu === submenu) {
+                    currentOpenSubmenu = null;
+                }
+            }, 500); // Delay de seguridad - se cancela inmediatamente si vuelves al menú
+        }
+        
+        // Cancelar cierre - función clave
+        function keepOpen() {
+            clearTimeout(closeTimeout);
+        }
+        
+        // Eventos para el item del menú
+        item.addEventListener('mouseenter', openSubmenu);
+        item.addEventListener('mouseleave', closeSubmenu);
+        
+        // Eventos para el submenú - mantener abierto SIEMPRE que estés dentro
+        submenu.addEventListener('mouseenter', keepOpen);
+        submenu.addEventListener('mouseleave', (e) => {
+            // CRÍTICO: Solo cerrar si NO vas a:
+            // 1. Un hijo del submenu
+            // 2. Un submenu lateral
+            // 3. El item del menú padre
+            const relatedTarget = e.relatedTarget;
+            
+            // Si vas a un elemento dentro del submenu o sus hijos, NO cerrar
+            if (submenu.contains(relatedTarget)) {
+                keepOpen();
+                return;
+            }
+            
+            // Si vas al item padre del menú, NO cerrar
+            if (item.contains(relatedTarget)) {
+                keepOpen();
+                return;
+            }
+            
+            // Si vas a un submenu lateral, NO cerrar
+            const allSideMenus = submenu.querySelectorAll('.desktop-submenu-side');
+            for (let sideMenu of allSideMenus) {
+                if (sideMenu.contains(relatedTarget)) {
+                    keepOpen();
+                    return;
+                }
+            }
+            
+            // Solo si realmente sales de TODAS las áreas, entonces cerrar
+            closeSubmenu();
+        });
+        submenu.addEventListener('scroll', keepOpen);  // Mantener abierto al hacer scroll
+        
+        // CRÍTICO: Prevenir cierre al hacer click DENTRO del submenu
+        submenu.addEventListener('click', (e) => {
+            keepOpen();
+            // No hacer stopPropagation para permitir que los onclick funcionen
+        });
+        
+        // Eventos para TODOS los items dentro del submenú - SOLO keepOpen
+        const allSubmenuItems = submenu.querySelectorAll('.desktop-submenu-item, .desktop-submenu-item-with-side, .desktop-submenu-title, .desktop-submenu-divider');
+        allSubmenuItems.forEach(subItem => {
+            subItem.addEventListener('mouseenter', keepOpen);
+            
+            // CRÍTICO: Prevenir cierre al hacer click en items
+            if (subItem.classList.contains('desktop-submenu-item')) {
+                subItem.addEventListener('click', (e) => {
+                    keepOpen();  // Cancelar cualquier timeout de cierre
+                    // El menú permanecerá abierto después del click
+                });
+            }
+            // NO agregar mouseleave aquí - dejamos que el submenu padre lo maneje
+        });
+        
+        // Eventos específicos para items con submenú lateral
+        const submenuItemsWithSide = submenu.querySelectorAll('.desktop-submenu-item-with-side');
+        submenuItemsWithSide.forEach(subItem => {
+            const sideMenu = subItem.querySelector('.desktop-submenu-side');
+            if (sideMenu) {
+                // Mantener abierto cuando entras al menú lateral
+                sideMenu.addEventListener('mouseenter', keepOpen);
+                sideMenu.addEventListener('mouseleave', (e) => {
+                    // CRÍTICO: Solo cerrar si NO vas a:
+                    // 1. Un hijo del sideMenu
+                    // 2. El item padre que abre este sideMenu
+                    // 3. El submenu principal
+                    const relatedTarget = e.relatedTarget;
+                    
+                    // Si vas a un elemento dentro del sideMenu, NO cerrar
+                    if (sideMenu.contains(relatedTarget)) {
+                        keepOpen();
+                        return;
+                    }
+                    
+                    // Si vas al item padre o al submenu principal, NO cerrar
+                    if (subItem.contains(relatedTarget) || submenu.contains(relatedTarget)) {
+                        keepOpen();
+                        return;
+                    }
+                    
+                    // Solo si realmente sales, entonces cerrar
+                    closeSubmenu();
+                });
+                
+                // CRÍTICO: Prevenir cierre al hacer click DENTRO del side menu
+                sideMenu.addEventListener('click', (e) => {
+                    keepOpen();
+                    e.stopPropagation(); // No propagar el click al contenedor padre
+                });
+                
+                // CRÍTICO: Prevenir cierre al hacer scroll en el side menu
+                sideMenu.addEventListener('scroll', keepOpen);
+                
+                // Eventos para items dentro del menú lateral
+                const sideMenuItems = sideMenu.querySelectorAll('.desktop-submenu-item');
+                sideMenuItems.forEach(sideItem => {
+                    // MANTENER ABIERTO al hacer hover
+                    sideItem.addEventListener('mouseenter', keepOpen);
+                    
+                    // CRÍTICO: Prevenir cierre al hacer click
+                    sideItem.addEventListener('click', (e) => {
+                        keepOpen();  // Cancelar cualquier timeout de cierre
+                        // El menú se quedará abierto hasta que el mouse salga
+                    });
+                    
+                    // NO agregar mouseleave aquí - dejamos que el sideMenu padre lo maneje
+                });
+            }
+        });
+    });
+    
+    // Cerrar todos los submenús si el mouse sale de la barra de navegación
+    const navbar = document.querySelector('.desktop-navbar');
+    if (navbar) {
+        navbar.addEventListener('mouseleave', (e) => {
+            const relatedTarget = e.relatedTarget;
+            
+            // CRÍTICO: Si el mouse va a un submenu abierto, NO cerrar
+            if (currentOpenSubmenu) {
+                // Verificar si vas al submenu principal
+                if (currentOpenSubmenu.contains(relatedTarget)) {
+                    clearTimeout(closeTimeout);
+                    return;
+                }
+                
+                // Verificar si vas a algún submenu lateral dentro del submenu abierto
+                const sidemenus = currentOpenSubmenu.querySelectorAll('.desktop-submenu-side');
+                for (let sidemenu of sidemenus) {
+                    if (sidemenu.contains(relatedTarget)) {
+                        clearTimeout(closeTimeout);
+                        return;
+                    }
+                }
+            }
+            
+            // Solo si sales a un área completamente diferente, iniciar timeout
+            clearTimeout(closeTimeout);
+            closeTimeout = setTimeout(closeAllSubmenus, 500);
+        });
+        
+        // Cancelar cierre si vuelves al navbar
+        navbar.addEventListener('mouseenter', () => {
+            clearTimeout(closeTimeout);
+        });
+    }
+});
+</script>
+    <!-- Menú desplegable para móvil y ahora también para PC -->
+    <div id="mobile-dropdown" class="mobile-dropdown hidden">
+        <div class="dropdown-menu-header">
+            <h3>Menú Principal</h3>
+            <button id="close-mobile-menu" class="close-mobile-menu-btn" aria-label="Cerrar menú">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="dropdown-menu-content">
+            <div class="has-submenu">
+                <button class="submenu-parent-btn">Leyes y Normativa <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu leyes-compactas">
+                    <div class="submenu-column">
+                        <div class="submenu-title">Leyes</div>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=242302')">1. Constitución Política</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=30329')">2. Ley 18.961 Org. Const.</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=30670')">3. Ley 19.303</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=7193')">4. D.L. 3.607 (1981)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1202067&tipoVersion=0')">5. Ley 21.659 Seg. Privada</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1213672')">6. Reglamento 209</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1211115')">7. Reglamento 208</button>
+                    </div>
+                    <div class="submenu-column">
+                        <div class="submenu-title">Decretos</div>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/Decreto-261.pdf')">1. D.E. 261 (2020)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1200633')">2. D.E. 32 (2024)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1136545&idParte=10054790&idVersion=2019-09-17')">3. D. 298 (2019)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1130300&idParte=10013741&idVersion=2019-04-05')">4. D. 123 (2019)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1122982&idParte=9948603&idVersion=2018-09-12')">5. D. 1045 (2018)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1116274')">6. D. 867 (2017)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1069299')">7. D. 1814 (2014)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1055580')">8. D.S. 222 (2014)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=1072929')">9. D.E. 1122 (1994)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=19870')">10. D.S. 41 (1996)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=18592')">11. D.S. 1772 (1995)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=18594')">12. D.S. 1773 (1994)</button>
+                        <button onclick="openNewLink('https://www.bcn.cl/leychile/navegar?idNorma=9081')">13. D.S. 93 (1985)</button>
+                    </div>
+                    <div class="submenu-column">
+                        <div class="submenu-title">Resoluciones</div>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_111.pdf')">1. Res. Exenta N° 111 (18-06-2010)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_112.pdf')">2. Res. Exenta N° 112 (18-06-2010)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_253.pdf')">3. Res. Exenta N° 253 (29-10-2013)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_59.pdf')">4. Res. Exenta N° 59 (30-09-2014)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_281.pdf')">5. Res. Exenta N° 281 (13-11-2015)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/RESOLUCION%20EXENTA%20NRO.50.pdf')">6. Res. Exenta N° 50 (22-05-2020)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_23.pdf')">7. Res. Exenta N° 23 (05-03-2021)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_133.pdf')">8. Res. Exenta N° 133 (26-05-2021)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2432.pdf')">9. Res. N° 2432 (05-07-2021)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_4070.pdf')">10. Res. N° 4070 (20-10-2021)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_20.pdf')">11. Res. N° 20 (14-02-2022)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2660.pdf')">12. Res. N° 2660 (20-07-2022)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_123.pdf')">13. Res. Exenta N° 123 (09-08-2022)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resol_4651.pdf')">14. Res. Exenta N° 4651 (27-12-2022)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2095.pdf')">15. Res. N° 2095 (01-08-2023)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2114.pdf')">16. Res. N° 2114 (03-08-2023)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2340.pdf')">17. Res. N° 2340 (22-08-2023)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_1763.pdf')">18. Res. N° 1763 (10-06-2023)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/Resol_3632.pdf')">19. Res. N° 3632 (21-12-2022)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_370.pdf')">20. Res. N° 370 (13-02-2024)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_80.pdf')">21. Res. Exenta N° 80 (20-03-2024)</button>
+                        <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/resolucion_2522.pdf')">22. Res. N° 2522 (26-08-2024)</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+             <div class="has-submenu">
+                <button class="submenu-parent-btn">Componentes <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu submenu-compact">
+                    <button onclick="mostrarRequisitos('vigilante')">1. Vigilante Privado</button>
+                    <button onclick="mostrarRequisitos('guardia')">2. Guardia de Seguridad</button>
+                    <button onclick="mostrarRequisitos('jefe')">3. Jefe de Seguridad</button>
+                    <button onclick="mostrarRequisitos('encargado')">4. Encargado de Seguridad</button>
+                    <button onclick="mostrarRequisitos('supervisor')">5. Supervisor de Seguridad</button>
+                    <button onclick="mostrarRequisitos('asesor')">6. Asesor de Seguridad</button>
+                    <button onclick="mostrarRequisitos('capacitador')">7. Capacitador</button>
+                    <button onclick="mostrarRequisitos('tecnico')">8. Técnico en Seguridad</button>
+                    <button onclick="mostrarRequisitos('instalador')">9. Instalador Técnico</button>
+                    <button onclick="mostrarRequisitos('operador')">10. Operador de Cámaras</button>
+                    <button onclick="mostrarRequisitos('portero')">11. Portero/Nochero/Rondín</button>
+                    <button onclick="mostrarRequisitos('encargadoArmas')">12. Encargado de Armas</button>
+                    <button onclick="mostrarRequisitos('empresa')">13. Empresas de Seguridad Privada</button>
+                </div>
+            </div>
+            <div class="has-submenu">
+                <button class="submenu-parent-btn">Doc. Editables <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu submenu-compact">
+                    <button onclick="openNewLink('https://dal5.short.gy/3st')">Estudio de seguridad</button>
+                    <button onclick="openNewLink('https://d6.short.gy/Pl4n')">Planes de seguridad</button>
+                    <button onclick="openNewLink('https://dal5.short.gy/M3')">Medidas de seguridad</button>
+                    <button onclick="openNewLink('https://docs.google.com/document/d/1MgInvryuu2EaxHMG_Zuy_1ZiuOTHr6jA/edit')">Directiva de funcionamiento</button>
+                    <button onclick="openNewLink('https://dal5.short.gy/H23wIF')">Solicitud simple</button>
+                </div>
+            </div>
+            <div class="has-submenu">
+                <button class="submenu-parent-btn">Mod. Decl. Jurada<svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu submenu-compact">
+                    <button onclick="openNewLink('https://drive.google.com/file/d/1ObrdQqk_PPVTTRUKOzVmVDIxxlcZXRY6/view?usp=sharing')">1. Mod. Decl. jurada Pers. Nat.</button>
+                    <button onclick="openNewLink('https://drive.google.com/file/d/1X32qrNC0KeyR9bW2AVZ7VzZW6JZTSjl0/view?usp=sharing')">2. Mod. Decl. jurada para emp.</button>
+                    <!-- Megamenu Asesor <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/MOD_solicitud_simple_acreditacion_empresa.pdf')">3. Solic. simple acred. de emp.</button>
+                    <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/MOD_solicitud_pers_natural_dependiente.pdf')">4. Mod. Solic. Pers. Natural Dep.</button>
+                    <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/MOD_sol_acreditacion_asesor.pdf')">5. Mod. de solic. Acred. Asesor.</button>
+                    <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/MOD_acreditacion_capacitador.pdf')">6. Mod. Acred. Capacitador.</button>-->
+                </div>
+            </div>
+            <div class="has-submenu">
+                <button class="submenu-parent-btn">Manuales <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu submenu-compact">
+                    <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/manual_funcionamiento.pdf')">1. Manual de Funcionamiento</button>
+                    <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/manual_capacitacion.pdf')">2. Manual de Capacitación</button>
+                    <button onclick="openNewLink('https://www.zosepcar.cl/content/OS10/manual_organizacion.pdf')">3. Manual de Organización</button>
+                </div>
+            </div>
+            <div class="has-submenu">
+                <button class="submenu-parent-btn">Capacitación <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu submenu-compact">
+                    <button onclick="openNewLink('https://drive.google.com/file/d/1RsYHWNpeNAmhTIO1kXOscZbia7Yepktp/view')">Empresas de Capacitación</button>
+                    <button onclick="openNewLink('https://dal5.short.gy/4S3')">Asesores</button>
+                    <button onclick="openNewLink('https://drive.google.com/file/d/1hpZrzhXCnGyLkFLRhj0FOY_zDwTEUIaN/view')">Capacitadores</button>
+                    <button onclick="openNewLink('https://drive.google.com/file/d/1swqlfBX5-7Ko-3u_H95pnGzbLkhUnrwy/view')">Valor Curso Formación</button>
+                    <button onclick="openNewLink('https://drive.google.com/file/d/1q2qS2AQUgoma8TmOppO9IOV1LX4PJS9Z/view')">Valor Curso Perfeccionamiento</button>
+                </div>
+            </div>
+            <div class="has-submenu">
+                <button class="submenu-parent-btn">Credenciales <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+                <div class="submenu submenu-compact">
+                    <button onclick="handleCredenciales()">Empresa</button>
+                    <button onclick="handleCredencialIndependiente()">Independiente</button>
+                </div>
+            </div>
+            <button class="menu-item-stack" onclick="handleCerofilas()">Cerofilas</button>
+            <!--<button class="menu-item-stack" onclick="handleBuscarCurso('https://www.zosepcar.cl/OS10.php#buscador')">Consultar Curso</button>-->
+            <button class="menu-item-stack" onclick="handleDirectiva()">Directiva</button>
+            <button class="menu-item-stack" onclick="handleSPD()">SPD</button>
+            <button class="menu-item-stack" onclick="handleValores()">Valores</button>
+            <button class="menu-item-stack" onclick="handleValorPlan()">Valor Plan</button>
+            <button class="menu-item-stack" onclick="openNewLink('https://maps.app.goo.gl/QUhujWbTF1FjDA7E6')">Ubicación</button>
+            <button class="menu-item-stack" onclick="openNewLink('https://dal5.short.gy/R3')">Reclamo</button>
+         </div>
+    </div>
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black/40 z-[1199]"></div>
+    <div id="desktop-submenu-panel"></div>
+    <!-- Megamenu Asesor -->
+    <div id="asesor-megamenu" class="asesor-megamenu">
+        <button id="asesor-close-btn" class="asesor-close-btn" aria-label="Cerrar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="asesor-megamenu-content">
+            <div class="megamenu-header">
+                <h3 class="font-bold text-gray-800">🤖👮🏻‍♂️ ASESOR</h3>
+            </div>
+            <p class="mb-2"><strong>GUÍA:</strong> <a href="https://www.zosepcar.cl/content/OS10/TRAM_asesor.pdf" target="_blank" class="text-blue-600 hover:underline">https://www.zosepcar.cl/content/OS10/TRAM_asesor.pdf</a></p>
+            <h4 class="font-semibold text-gray-700 mt-4 mb-2">TÍTULOS AFINES:</h4>
+            <p class="mb-2"><strong>Resol. 4070 20.10.2021</strong> - <a href="https://bit.ly/3r5HrBg" target="_blank" class="text-blue-600 hover:underline">link: https://bit.ly/3r5HrBg</a></p>
+            <h5 class="font-medium text-gray-600 mt-3 mb-1 asesor-diploma-title"><strong>➢ SIN DIPLOMADO EN SEGURIDAD PRIVADA</strong></h5>
+            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                <li>INGENIERO DE EJECUCIÓN EN GESTIÓN DE SEGURIDAD PRIVADA.</li>
+                <li>INGENIERO EN GESTIÓN DE SEGURIDAD Y VIGILANCIA PRIVADA.</li>
+            </ol>
+            <h5 class="font-medium text-gray-600 mt-3 mb-1 asesor-diploma-title"><strong>➢ CON DIPLOMADO EN SEGURIDAD PRIVADA</strong></h5>
+            <ol class="list-decimal list-inside text-gray-600 space-y-1" start="3">
+                <li>INGENIERO EN SEGURIDAD Y PREVENCIÓN DE RIESGO.</li>
+                <li>INGENIERO EN PREVENCIÓN DE RIESGOS.</li>
+                <li>PARA LOS EX MIEMBROS DE LAS FUERZAS ARMADAS, CARABINEROS DE CHILE, POLICÍA DE INVESTIGACIONES Y GENDARMERÍA DE CHILE se exigirá EL TITULO DE OFICIAL EGRESADO de/las Fuerzas Armadas, de las Fuerzas de Orden y Seguridad Pública o Gendarmería de Chile.</li>
+            </ol>
+            <p class="mt-4 mb-2"><strong>Resol. 2660 20.07.2023</strong> - <a href="https://bit.ly/44PRW9w" target="_blank" class="text-blue-600 hover:underline">link: https://bit.ly/44PRW9w</a></p>
+            <ol class="list-decimal list-inside text-gray-600" start="6">
+                <li>INGENIERÍA EN ADMINISTRACIÓN MENCIÓN SEGURIDAD PRIVADA</li>
+            </ol>
+            <p class="mt-4"><strong>CREDENCIAL:</strong> <a href="https://bit.ly/3tGuM9a" target="_blank" class="text-blue-600 hover:underline">https://bit.ly/3tGuM9a</a></p>
+        </div>
+    </div>
+    <!-- Megamenu Jefe de Seguridad -->
+    <div id="jefe-megamenu" class="asesor-megamenu">
+        <button id="jefe-close-btn" class="asesor-close-btn" aria-label="Cerrar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="asesor-megamenu-content">
+            <div class="megamenu-header">
+                <h3 class="font-bold text-gray-800">🤖👮🏻‍♂️ JEFE DE SEGURIDAD</h3>
+            </div>
+            <p class="mb-4"><strong>GUÍA:</strong> <a href="https://www.zosepcar.cl/content/OS10/TRAM_jefe_de_seguridad.pdf" target="_blank" class="text-blue-600 hover:underline">Descargar guía oficial</a></p>
+            
+            <h4 class="font-semibold text-gray-700 mt-6 mb-2">ACTAS Y DOCUMENTACIÓN:</h4>
+            <div class="space-y-2">
+                <p>➢ <strong>ACTAS JEFE SEGURIDAD EX FF.AA:</strong> <a href="https://drive.google.com/drive/folders/1aAkt55yTidnT90LI-Ss3gNWCGM8X7luW?usp=sharing" target="_blank" class="text-blue-600 hover:underline">Ver carpeta</a></p>
+                <p>➢ <strong>ACTAS JEFE DE SEGURIDAD CIVIL:</strong> <a href="https://drive.google.com/drive/folders/14UBGFXwo7NBA55_o0p2MNQxe1_3H16k4?usp=sharing" target="_blank" class="text-blue-600 hover:underline">Ver carpeta</a></p>
+            </div>
+            <h4 class="font-semibold text-gray-700 mt-6 mb-2">TRÁMITE DE CREDENCIAL:</h4>
+            <p>🧙🏼‍♂️ <strong>CREDENCIAL JEFE DE SEGURIDAD:</strong> <a href="https://os10.short.gy/Jef" target="_blank" class="text-blue-600 hover:underline">Iniciar trámite aquí</a></p>
+        </div>
+    </div>
+    <div id="contenido" class="card-container bg-white/90 backdrop-blur-sm rounded-xl shadow-lg space-y-6 relative p-6" style="display: none;">
+        <a href="https://www.zosepcar.cl/OS10.php" target="_blank" aria-label="Visit ZOSEPCAR page" class="logo-os10-container">
+            <img src="assets/images/logo-os10.png" alt="OS10 Logo" class="h-full" loading="lazy" width="60" height="60">
+        </a>
+        <button id="credenciales-arrow-back-btn" class="hidden" title="Back to Home" onclick="showHomepage()">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+        <section id="main-section" class="main-content" style="display: none;">
+            <header class="text-center pt-8">
+                <h1 class="text-2xl font-bold text-gray-800">DIRECTIVA DE FUNCIONAMIENTO</h1>
+                <h2 class="text-lg font-semibold text-gray-600">Instalación - Eventos - Partidos de Fútbol Profesional</h2>
+                <div class="mb-4 p-3 bg-amber-50 border-l-4 border-amber-500 text-sm">
+                    <p class="font-semibold text-amber-900">⚠️ ACTUALIZACIÓN NORMATIVA</p>
+                    <p class="text-amber-800 mt-1">Nueva Ley 21.659 vigente desde 28-NOV-2025. Reemplaza normativa anterior del DL 3.607/1981.</p>
+                </div>
+            </header>
+            <main class="space-y-4">
+                <section class="section-card border-blue-500 bg-blue-100/80">
+                    <h3 class="font-bold text-blue-800">1 Marco Legal Vigente</h3>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 space-y-2">
+                        <li><strong>Ley N° 21.659</strong> - Sobre Seguridad Privada (Vigente desde 28-NOV-2025)
+                            <br><a href="https://www.bcn.cl/leychile/navegar?idNorma=1202067" target="_blank" class="text-blue-600 hover:underline">Ver Ley 21.659</a>
+                        </li>
+                        <li><strong>Decreto N° 209</strong> - Reglamento de Seguridad Privada (Publicado 27-MAY-2025)
+                            <br><a href="https://www.bcn.cl/leychile/navegar?idNorma=1213672" target="_blank" class="text-blue-600 hover:underline">Ver Decreto 209</a>
+                        </li>
+                        <li><strong>Decreto N° 208</strong> - Reglamento de Eventos Masivos (Publicado 14-FEB-2025)
+                            <br><a href="https://www.bcn.cl/leychile/Navegar?idNorma=1211115" target="_blank" class="text-blue-600 hover:underline">Ver Decreto 208</a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="section-card border-purple-500 bg-purple-100/80">
+                    <h3 class="font-bold text-purple-800">2 Presentar Directiva DD.FF.</h3>
+                    <ul class="list-disc pl-5 text-sm text-gray-700">
+                        <li>Vigencia 03 años en instalación.</li>
+                        <li>Presentar con 15 días hábiles de anticipación.</li>
+                        <li>Deben incluir: Plan de Seguridad, Análisis de Vulnerabilidades, Uniformes según normativa vigente.</li>
+                        <li>Aplican <a href="https://www.bcn.cl/leychile/navegar?idNorma=1202067" target="_blank" class="text-blue-600 hover:underline">Ley 21.659</a>, <a href="https://www.bcn.cl/leychile/navegar?idNorma=1213672" target="_blank" class="text-blue-600 hover:underline">Decreto 209</a>, <a href="https://www.bcn.cl/leychile/Navegar?idNorma=1211115" target="_blank" class="text-blue-600 hover:underline">Decreto 208</a>.</li>
+                   </ul>
+                </section>
+                <section class="section-card border-indigo-500 bg-indigo-100/80">
+                    <h3 class="font-bold text-indigo-800">3 Nuevas Obligaciones Ley 21.659, Decreto 209 y 208</h3>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 space-y-2">
+                        <li><strong>Denuncia obligatoria:</strong> Decreto N° 209, Artículo 4° - "Deber de colaboración". Denunciar todo delito dentro de 24 horas ante autoridades competentes en el ejercicio de su rol coadyuvante, están especialmente obligados a colaborar con las Fuerzas de Orden y Seguridad Pública.</li>
+                        <li><strong>Coordinación:</strong> Coordinar actividades con Carabineros de Chile (O.S.10).</li>
+                        <li><strong>Conservación de pruebas:</strong> Mantener y entregar todos los antecedentes relevantes para investigaciones.</li>
+                        <li><strong>Capacitación:</strong> Personal debe aprobar cursos en derechos humanos y procedimientos legales.</li>
+                        <li><strong>Uniforme distintivo:</strong> Obligatorio uso de uniforme que no se asemeje a Fuerzas de Orden.</li>
+                        <li><strong>Fiscalización:</strong> Supervisión por Subsecretaría de Prevención del Delito y Carabineros de Chile.</li>
+                    </ul>
+                </section>
+                <section class="section-card border-green-500 bg-green-100/80">
+                    <h3 class="font-bold text-green-800">4 Documentación</h3>
+                    <ul class="space-y-4 text-sm text-gray-700">
+                        <li><p>02 Solicitudes Simple.</p><a href="https://dal5.short.gy/Solic" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 transition-colors" title="Descargar Solicitud">Descargar</a></li>
+                        <li><p>01 copia DD.FF. completa.</p><a href="https://dal5.short.gy/D" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 transition-colors" title="Descargar Word">Editable</a></li>
+                        <li><p>Requisitos según tipo.</p><a href="https://dal5.short.gy/Re24" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 transition-colors" title="Descargar Requisi.">Descargar</a></li>
+                        <li><p>Uniforme Art. 90 Decreto 209.</p><a href="https://dal5.short.gy/0u" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 transition-colors" title="Ejemplo Uniforme">Ejemplo</a></li>
+                        <li><p>Análisis de Vulnerabilidades.</p><a href="https://dal5.short.gy/6ydn" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 transition-colors" title="Descargar Análisis">Descargar</a></li>
+                        <li><p>Solicitud Uniforme Distinto.</p><a href="https://d6.short.gy/G8" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-green-500 rounded-md hover:bg-green-600 transition-colors" title="Descargar Word">Editable</a></li>
+                    </ul>
+                </section>
+                <section class="section-card border-red-500 bg-red-100/80">
+                    <h3 class="font-bold text-red-800">5 Todo escaneado en Digital.</h3>
+                    <ul class="space-y-4 text-sm text-gray-700">
+                        <li><p>Escanear en 01 archivo PDF.</p><a href="https://dal5.short.gy/I" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition-colors" title="Herramienta para unir PDF">Herramienta</a></li>
+                    </ul>
+                </section>
+                <section class="section-card border-yellow-500 bg-yellow-100/80">
+                    <h3 class="font-bold text-yellow-800">6 Tramitar Credenciales</h3>
+                    <ul class="space-y-4 text-sm text-gray-700">
+                        <li><p>Resol. 1480 (10.04.2025).</p><a href="https://d6.short.gy/dsds" target="_blank" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-yellow-500 rounded-md hover:bg-yellow-600 transition-colors" title="Download Documents">Download</a></li>
+                        <li><p>Tramitar credenciales.</p><button onclick="showCredenciales()" class="inline-block mt-1 w-32 text-center px-4 py-1 text-sm font-medium text-white bg-yellow-500 rounded-md hover:bg-yellow-600 transition-colors" id="tramitarCredencialesBtn" title="Process Credentials">Process</button></li>
+                    </ul>
+                </section>
+            </main>
+            <footer class="relative mt-6 border-t border-gray-200 pt-4">
+                <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm">
+                <p>© 2026 Prefectura de Coquimbo, O.S.10. Todos los derechos reservados.</p>
+                <p class="mt-1">Plataforma desarrollada por Daniel Figueroa Ch. Ingeniero en Informática & Ciberseguridad.</p>
+                </div>
+                <img src="assets/images/qr.webp" alt="QR Code" class="absolute right-4 bottom-4 w-11 h-11 md:w-14 md:h-14" title="More information" loading="lazy" width="56" height="56">
+            </footer>
+        </section>
+        <!-- SECCIÓN DE CREDENCIALES RESTAURADA -->
+        <section id="credenciales-section" class="credenciales-section">
+             <header class="credenciales-title-container">
+                <h1 class="credenciales-main-title">CREDENCIAL</h1>
+                <h2 class="credenciales-main-subtitle">EMPRESA E INDEPENDIENTE</h2><br>
+            </header>
+            <main class="content-container">
+                <section class="main-section">
+                    <h3 class="credenciales-section-title">REQUISITOS PARA SOLICITUD DE CREDENCIAL</h3>
+                    <div class="space-y-8">
+                        <div class="requirement-block">
+                            <h4 class="requirement-subtitle"><strong>➢ CREDENCIAL EMPRESA</strong></h4>
+                            <h4 class="requirement-subtitle">Documentos requeridos:</h4>
+                            <ul class="list-disc pl-5">
+                                <li>01 Solicitud simple o carta conductora para credencial Independiente o Empresa.</li>
+                                <a href="https://d6.short.gy/bv" target="_blank" class="credenciales-download-btn bg-yellow-500 hover:bg-yellow-600">Descargar</a>
+                                <li>Fotocopia de cédula de identidad (ambas caras).</li>
+                                <li>Certificado OS.10 (Curso Aprobado Vigente).</li>
+                                <li>Certificado de Antecedentes para Fines Especiales.</li>
+                            </ul>
+                        </div>
+                        <div class="requirement-block">
+                            <h4 class="requirement-subtitle">Fotografía digital:</h4>
+                            <ul class="list-disc pl-5">
+                                <li>Formato JPG, 260 x 320 píxeles, fondo blanco.</li>
+                                <li>Camisa negra (tela gruesa/delgada, manga corta/larga).</li>
+                                <li>Fotografia almacenada en un Pendrive.</li><br>
+                                <li>Para empresas deben completar este listado en Word y debe venir en pendrive en formato digital.</li>
+                                <a href="https://docs.google.com/document/d/14mzX_kderPmSKiui__WIqVKiRSKgFe7x/edit?usp=drive_link&ouid=106863493232977056654&rtpof=true&sd=true" target="_blank" class="credenciales-download-btn bg-yellow-500 hover:bg-yellow-600">WORD LIST. GG.SS.</a>
+                            </ul>
+                            <div class="mt-4 flex justify-center"><img src="assets/images/foto.webp" alt="Example of correct photo" class="credenciales-photo-example" loading="lazy" width="331" height="413"></div>
+                            <div class="flex flex-col space-y-3 mt-4">
+                                <p class="text-sm italic text-center">Formato JPG, 260 x 320 píxeles, fondo blanco:</p>        
+                            </div>
+                        </div>
+                        <div class="requirement-block">
+                            <h4 class="requirement-subtitle special-subtitle"><strong>➢ CREDENCIAL INDEPENDIENTE</strong></h4>
+                            <a href="https://drive.google.com/uc?export=download&id=1cP51FJEqrndm3RDNLuDUFCR8zlGIBrwb" target="_blank" class="credenciales-download-btn bg-blue-500 hover:bg-blue-600 indep-btn">Independiente</a>
+                        </div>
+                        <div class="requirement-block">
+                            <h4 class="requirement-subtitle">PAGO VALE VISTA:</h4>
+                            <ul class="list-disc pl-5">
+                                <li>$5.960 CLP con un VALE VISTA a nombre de:</li>
+                                <li><strong>ZONA DE CARABINEROS SEGURIDAD PRIVADA CONTROL DE ARMAS Y EXPLOSIVOS</strong></li>
+                                <li>R.U.T.: 61.944.800-6</li>
+                                <li>Teléfono OS.10.: +562512651024</li>
+                            </ul>
+                            <div class="flex flex-col sm:flex-row sm:items-end justify-start sm:justify-between mt-4 gap-4">
+                                <a href="https://drive.google.com/uc?export=download&id=1CO9egHu6DydS51hKyDnxkg2BdDPj-vZZ" download="valores.pdf" class="download-link" id="valoresImageLink"><img src="assets/images/valores.webp" alt="Payment Values" class="credenciales-valores-example" loading="lazy" width="220" height="100"></a>
+                                <a href="https://dal5.short.gy/Câˆš" target="_blank"><img src="assets/images/qrcred.webp" alt="QR Code for more information" class="credenciales-qr-image" loading="lazy" width="80" height="80"></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer-text text-center mt-6 text-sm text-gray-600">
+              <span>Haga clic en los botones para descargar.</span><br>
+               <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm">
+                <p>© 2026 Prefectura de Coquimbo, O.S.10. Todos los derechos reservados.</p>
+                <p class="mt-1">Plataforma desarrollada por Daniel Figueroa Ch. Ingeniero en Informática & Ciberseguridad.</p>
+              </div>
+            </footer>
+        </section>
+    </div>
+    <section id="homepage-section" class="homepage-section relative flex flex-col items-center justify-center text-center text-white p-4 overflow-hidden">
+        <div class="absolute inset-0 bg-black/30 z-0"></div>
+        
+        <!-- Contenedor del Título (FORZADO HACIA ARRIBA) -->
+        <div class="relative z-10" style="position: absolute !important; top: 10% !important; left: 0; right: 0; width: 100%;">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-shadow-lg">BIENVENIDOS A LA PLATAFORMA DE O.S.10 COQUIMBO</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-shadow">Sistema de trámites y servicios de seguridad privada</p>
+        </div>
+        <!-- Contenedor de los Botones (centrado) -->
+        <div class="relative z-10 mt-12">
+            <!-- BOTONES PARA MÓVIL - SPD PRIMERO -->
+            <div class="flex flex-col sm:hidden space-y-4 justify-center items-center">
+                <button onclick="handleSPD()" class="homepage-btn bg-blue-600/80 hover:bg-blue-700 text-white font-bold rounded-lg px-8 py-4 transition-transform transform hover:scale-105 hover:bg-opacity-100 w-full max-w-xs">
+                    <span class="text-spd-alternante"><span class="texto-spd" id="texto-spd-mobile">SPD</span></span>
+                </button>
+                <button onclick="showDirectiva()" class="homepage-btn bg-blue-600/80 hover:bg-blue-700 text-white font-bold rounded-lg px-8 py-4 transition-transform transform hover:scale-105 hover:bg-opacity-100 w-full max-w-xs">Directivas</button>
+                <button onclick="showCredenciales()" class="homepage-btn bg-[#ffb700]/80 hover:bg-[#d49900] text-white font-bold rounded-lg px-8 py-4 transition-transform transform hover:scale-105 hover:bg-opacity-100 w-full max-w-xs">Credenciales</button>
+            </div>
+            
+            <!-- BOTONES PARA PC - SPD EN EL MEDIO -->
+            <div class="hidden sm:flex flex-row space-x-6 justify-center items-center">
+                <button onclick="showDirectiva()" class="homepage-btn bg-blue-600/80 hover:bg-blue-700 text-white font-bold rounded-lg px-8 py-4 transition-transform transform hover:scale-105 hover:bg-opacity-100">Directivas</button>
+                <button onclick="handleSPD()" class="homepage-btn bg-blue-600/80 hover:bg-blue-700 text-white font-bold rounded-lg px-8 py-4 transition-transform transform hover:scale-105 hover:bg-opacity-100 text-center leading-tight">
+                    <span class="text-spd-alternante"><span class="texto-spd" id="texto-spd-desktop">SPD</span></span>
+                </button>
+                <button onclick="showCredenciales()" class="homepage-btn bg-[#ffb700]/80 hover:bg-[#d49900] text-white font-bold rounded-lg px-8 py-4 transition-transform transform hover:scale-105 hover:bg-opacity-100">Credenciales</button>
+            </div>
+        </div>
+    </section>
+    <div id="homepage-content-wrapper">
+       <section id="tramites-principales" class="py-16 md:py-24 bg-[#146314] backdrop-blur-sm">
+            <div class="max-w-5xl mx-auto px-6 lg:px-8">
+                 <div class="text-center">
+                    <!--<div class="flex items-center justify-center space-x-2">
+                     <iframe width="560" height="315" src="https://www.youtube.com/embed/M_epPITSCSw?si=W2xBOL_F0pn_sw2j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+                    </div><br>-->
+                    <div class="flex items-center justify-center space-x-2">
+                        <a href="https://www.zosepcar.cl/OS10.php" target="_blank"><img src="assets/images/logo-os10.png" alt="OS10 Logo" class="h-10 w-10 md:h-12 md:w-12" loading="lazy"></a>
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Trámites Principales</h2><br>
+                    </div>
+                    <p class="mt-4 text-lg leading-8 text-gray-300">Acceso directo a la información que buscas</p>
+                </div>
+                <div class="carousel-container carousel-desktop-grid mt-16">
+                    <div onclick="openNewLink('https://dal5.short.gy/CFil')" class="carousel-card cursor-pointer group relative bg-white/10 rounded-xl border border-white/20 hover:bg-white/20">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-green-500/20 text-green-300 rounded-lg p-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                            <h3 class="ml-4 text-xl font-bold text-white">Certificados O.S.10 Online - Cerofila</h3>
+                        </div>
+                        <p class="mt-4 text-gray-300">Certificado para Guardias de Seguridad, Conserjes y Vigilantes Privados.</p>
+                        <span class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                    </div>
+                    <div onclick="showDirectiva()" class="carousel-card cursor-pointer group relative bg-white/10 rounded-xl border border-white/20 hover:bg-white/20">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500/20 text-blue-300 rounded-lg p-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+                            <h3 class="ml-4 text-xl font-bold text-white">Directivas de Funcionamiento</h3>
+                        </div>
+                        <p class="mt-4 text-gray-300">Accede y gestiona los requerimientos para instalaciones, eventos y más.</p>
+                        <span class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                    </div>
+                    <div onclick="showCredenciales()" class="carousel-card cursor-pointer group relative bg-white/10 rounded-xl border border-white/20 hover:bg-white/20">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-yellow-500/20 text-yellow-300 rounded-lg p-3"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 012-2h2a2 2 0 012 2v1m-6 0h6"></path></svg></div>
+                            <h3 class="ml-4 text-xl font-bold text-white">Credenciales</h3>
+                        </div>
+                        <p class="mt-4 text-gray-300">Encuentra todos los formularios y requisitos para la acreditación de personal.</p>
+                        <span class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                    </div>
+                    <!-- TARJETA SPD AGREGADA -->
+                    <div onclick="handleSPD()" class="carousel-card cursor-pointer group relative bg-white/10 rounded-xl border border-white/20 hover:bg-white/20">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500/20 text-blue-300 rounded-lg p-3">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-xl font-bold text-white">SPD - Subsecretaría Prevención del Delito</h3>
+                        </div>
+                        <p class="mt-4 text-gray-300">Plataforma de Seguridad Privada, preguntas frecuentes y contactos.</p>
+                        <span class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                    </div>
+                    <div onclick="openNewLink('https://dal5.short.gy/R3')" class="carousel-card cursor-pointer group relative bg-white/10 rounded-xl border border-white/20 hover:bg-white/20">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-green-500/20 text-green-300 rounded-lg p-3"><svg class="w-8 h-8 text-green-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.377 11.082c-.06 1.929-2.229 3.126-8.409 3.126-6.193 0-8.358-1.203-8.409-3.139 1.508 0 4.379-1.958 8.409-1.958 3.927-.001 7.144 1.971 8.409 1.971zm-8.408 4.09c-2.062 0-3.74-.131-5.078-.397.062.555.469 3.322 2.409 3.322 1.721 0 1.673-1.316 2.721-1.316 1.047 0 1.169 1.316 2.852 1.316 2.09 0 2.46-3.063 2.494-3.389-1.387.311-3.169.464-5.398.464zm6.405-.741c-.04 2.171-.717 4.769-2.28 6.437-1.048 1.119-2.377 1.687-3.949 1.687-1.575 0-2.898-.533-3.931-1.582-1.646-1.673-2.302-4.345-2.396-6.461-.523-.158-1.01-.347-1.484-.628-.016 2.472.704 5.942 2.821 8.094 1.321 1.341 3 2.022 4.99 2.022 1.972 0 3.712-.745 5.033-2.153 2.131-2.273 2.76-5.679 2.661-8.111-.459.308-.944.521-1.465.695zm-6.237-10.984l-.313.623-.701.1.507.485-.119.685.626-.324.627.324-.12-.685.507-.485-.7-.1-.314-.623zm7.211-.206s-2.537-.686-7.348-3.241c-4.812 2.555-7.348 3.241-7.348 3.241s-1.295 2.4-3.652 5.016l2.266 1.908c1.533-.165 4.64-2.082 8.734-2.082s7.201 1.917 8.734 2.083l2.266-1.909c-2.357-2.616-3.652-5.016-3.652-5.016zm-6.345 3.214c-.526.131-.605.188-.875.402-.269-.214-.349-.271-.875-.402-.731-.183-1.151-.656-1.151-1.299 0-.359.147-.691.318-1.146.192-.513.083-.675-.119-.882l-.171-.176.987-.819c.098.098.235.278.486.278.248 0 .416-.175.528-.271.102.09.268.271.523.271.248 0 .381-.171.49-.281l.983.823-.172.176c-.202.207-.311.369-.119.882.17.455.318.786.318 1.146 0 .641-.42 1.115-1.151 1.298z"/></svg></div>
+                            <h3 class="ml-4 text-xl font-bold text-white">Reclamos de Seguridad Privada</h3>
+                        </div>
+                        <p class="mt-4 text-gray-300">Requerimiento de fiscalización (Reclamos de seguridad privada).</p>
+                        <span class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                    </div>
+                </div>
+                <div class="pagination-dots"></div>
+            </div>
+        </section>
+<!-- ========== SECCIÓN 1: LEYES Y NORMATIVA (FONDO BLANCO) ========== -->
+<section id="leyes-normativa" class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <!-- Icono decorativo de edificio gubernamental -->
+    <div class="absolute top-4 left-4 md:top-6 md:left-6 z-0">
+        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-600" style="opacity: 0.22;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.5,1L2,6V8H21V6M16,10V17H19V10M2,22H21V19H2M10,10V17H13V10M4,10V17H7V10H4Z" />
+        </svg>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Leyes y Normativa</h2>
+            <p class="mt-4 text-lg leading-8 text-gray-600">Marco legal y decretos que regulan la seguridad privada</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Columna Leyes -->
+            <div class="bg-blue-200/30 border border-blue-400 backdrop-blur-sm rounded-xl p-4 md:p-6 card-float-glow hover-glow-blue">
+                <button id="leyes-toggle" class="w-full text-lg md:text-xl font-bold text-gray-900 mb-4 flex items-center justify-between text-left md:pointer-events-none">
+                    <span class="flex items-center">
+                        <svg class="w-5 h-5 md:w-6 md:h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        Leyes Principales
+                    </span>
+                    <svg id="leyes-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-200 md:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <div id="leyes-content" class="space-y-2 hidden md:block">
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=242302" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">Constitución Política</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Fundamento constitucional</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=30329" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">Ley 18.961</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Ley Orgánica Constitucional</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=30670" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">Ley 19.303</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Normativa complementaria</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=7193" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">D.L. 3.607 (1981)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Decreto Ley histórico</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1202067" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">Ley 21.659</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Ley de Seguridad Privada</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1213672" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">Reglamento 209</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Reglamentación vigente</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1211115" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1.5 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-blue-700 text-xs md:text-sm">Reglamento 208</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Sobre Eventos Masivos</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Columna Decretos -->
+            <div class="bg-green-200/30 border border-green-400 backdrop-blur-sm rounded-xl p-4 md:p-6 card-float-glow hover-glow-green">
+                <button id="decretos-toggle" class="w-full text-lg md:text-xl font-bold text-gray-900 mb-4 flex items-center justify-between text-left md:pointer-events-none">
+                    <span class="flex items-center">
+                        <svg class="w-5 h-5 md:w-6 md:h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Decretos Supremos
+                    </span>
+                    <svg id="decretos-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-200 md:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <div id="decretos-content" class="space-y-2 scroll-container hidden md:block">
+                    <a href="https://www.zosepcar.cl/content/OS10/Decreto-261.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.E. 261 (2020)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1200633" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.E. 32 (2024)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1136545" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D. 298 (2019)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1130300" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D. 123 (2019)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1122982" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D. 1045 (2018)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1116274" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D. 867 (2017)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1069299" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D. 1814 (2014)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1055580" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.S. 222 (2014)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=1072929" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.E. 1122 (1994)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=19870" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.S. 41 (1996)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=18592" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.S. 1772 (1995)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=18594" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.S. 1773 (1994)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                    <a href="https://www.bcn.cl/leychile/navegar?idNorma=9081" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1.5 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-green-700 text-xs md:text-sm">D.S. 93 (1985)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm opacity-0">.</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Columna Resoluciones -->
+            <div class="bg-yellow-200/30 border border-yellow-400 backdrop-blur-sm rounded-xl p-4 md:p-6 card-float-glow hover-glow-yellow">
+                <button id="resoluciones-toggle" class="w-full text-lg md:text-xl font-bold text-gray-900 mb-4 flex items-center justify-between text-left md:pointer-events-none">
+                    <span class="flex items-center">
+                        <svg class="w-5 h-5 md:w-6 md:h-6 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                        Resoluciones
+                    </span>
+                    <svg id="resoluciones-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-200 md:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <div id="resoluciones-content" class="space-y-2 md:space-y-3 scroll-container hidden md:block" style="max-height: 400px;">
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_111.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700 text-xs md:text-sm">1. Res. Exenta N° 111 (18-06-2010)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Conexión sistema Alpha II</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_112.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700 text-xs md:text-sm">2. Res. Exenta N° 112 (18-06-2010)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Delega conexión Alpha II</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_253.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700 text-xs md:text-sm">3. Res. Exenta N° 253 (29-10-2013)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Capacitación independientes</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_59.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700 text-xs md:text-sm">4. Res. Exenta N° 59 (30-09-2014)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Conserjes y mayordomos</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_281.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700 text-xs md:text-sm">5. Res. Exenta N° 281 (13-11-2015)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Operador cajeros automáticos</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/RESOLUCION%20EXENTA%20NRO.50.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700 text-xs md:text-sm">6. Res. Exenta N° 50 (22-05-2020)</span>
+                        <span class="text-gray-600 block text-xs mt-1 md:text-sm">Medidas COVID-19</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_23.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">7. Res. Exenta N° 23 (05-03-2021)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Extiende medidas COVID-19</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_133.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">8. Res. Exenta N° 133 (26-05-2021)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Amplía medidas COVID-19</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_2432.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">9. Res. N° 2432 (05-07-2021)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Declaraciones juradas</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_4070.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">10. Res. N° 4070 (20-10-2021)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Requisitos Asesores</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_20.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">11. Res. N° 20 (14-02-2022)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Amplía vigencia credenciales</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_2660.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">12. Res. N° 2660 (20-07-2022)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Amplía Res. 4070 Asesores</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_123.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">13. Res. Exenta N° 123 (09-08-2022)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Amplía vigencia credenciales</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resol_4651.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">14. Res. Exenta N° 4651 (27-12-2022)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Toma de exámenes</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_2095.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">15. Res. N° 2095 (01-08-2023)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Exime autorización vigente</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_2114.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">16. Res. N° 2114 (03-08-2023)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Aclara Res. 2095</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_2340.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">17. Res. N° 2340 (22-08-2023)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Suspende tramitación credenciales</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_1763.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">18. Res. N° 1763 (10-06-2023)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Amplía carrera IPLACEX</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/Resol_3632.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">19. Res. N° 3632 (21-12-2022)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Certificado acreditación</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_370.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">20. Res. N° 370 (13-02-2024)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Tarjetas identificación</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_80.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">21. Res. Exenta N° 80 (20-03-2024)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Cursos modalidad telemática</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/resolucion_2522.pdf" target="_blank" 
+                       class="block px-3 md:px-4 py-2 bg-white rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all lg:text-xs lg:px-2 lg:py-1 border border-yellow-300 hover:-translate-y-1.5 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="font-semibold text-yellow-700">22. Res. N° 2522 (26-08-2024)</span>
+                        <span class="text-gray-600 block text-xs mt-1 lg:text-[0.6rem]">Regulariza tramitación credenciales</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- ========== SECCIÓN 2: COMPONENTES DEL SISTEMA (FONDO VERDE DEGRADADO) ========== -->
+<section id="componentes-seguridad" class="py-16 md:py-24 bg-[#146314] backdrop-blur-sm overflow-hidden">
+    <div class="max-w-full mx-auto">
+        <div class="text-center mb-12 px-6">
+            <div class="flex items-center justify-center space-x-2">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Componentes del Sistema</h2>
+            </div>
+            <p class="mt-4 text-lg leading-8 text-gray-300">Requisitos según Ley 21.659 y Decreto 209 - Vigente desde 28-Nov-2025</p>
+        </div>
+        <div class="carousel-container">
+            <!-- Tarjeta 1 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Asesor -->
+                    <button onclick="mostrarRequisitos('asesor')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500/20 text-blue-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Asesor de Seguridad</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                    <!-- Capacitador -->
+                    <button onclick="mostrarRequisitos('capacitador')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500/20 text-blue-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Capacitador</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Jefe de Seguridad -->
+                    <button onclick="mostrarRequisitos('jefe')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-yellow-500/20 text-yellow-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Jefe de Seguridad</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                    <!-- Encargado de Seguridad -->
+                    <button onclick="mostrarRequisitos('encargado')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-500/20 text-green-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 012-2h2a2 2 0 012 2v1m-6 0h6"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Encargado de Seguridad</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Supervisor de Seguridad -->
+                    <button onclick="mostrarRequisitos('supervisor')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-yellow-500/20 text-yellow-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Supervisor de Seguridad</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                    <!-- Vigilante Privado -->
+                    <button onclick="mostrarRequisitos('vigilante')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-red-500/20 text-red-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Vigilante Privado</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Tarjeta 4 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Guardia de Seguridad -->
+                    <button onclick="mostrarRequisitos('guardia')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-purple-500/20 text-purple-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Guardia de Seguridad</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                    <!-- Portero/Nochero/Rondín -->
+                    <button onclick="mostrarRequisitos('portero')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-orange-500/20 text-orange-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Portero/Nochero/Rondín</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Tarjeta 5 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Encargado de Armas -->
+                    <button onclick="mostrarRequisitos('encargadoArmas')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-red-500/20 text-red-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Encargado de Armas</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                    <!-- Operador de Cámaras -->
+                    <button onclick="mostrarRequisitos('operador')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-indigo-500/20 text-indigo-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Operador de Cámaras</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Tarjeta 6 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Técnico en Seguridad -->
+                    <button onclick="mostrarRequisitos('tecnico')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-500/20 text-green-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Técnico en Seguridad</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                    <!-- Instalador Técnico -->
+                    <button onclick="mostrarRequisitos('instalador')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-500/20 text-green-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Instalador Técnico</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Tarjeta 7 -->
+            <div class="carousel-card">
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <!-- Empresas de Seguridad Privada -->
+                    <button onclick="mostrarRequisitos('empresa')" class="flex flex-col items-center justify-center p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500/20 text-blue-300 rounded-lg"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div>
+                        <h3 class="text-white font-bold mt-3 text-center text-sm">Empresas de Seguridad Privada</h3>
+                        <p class="carousel-card-description">Ver requisitos completos</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pagination-dots"></div>
+    </div>
+</section>
+
+<!-- Modal para mostrar requisitos -->
+<div id="modalRequisitos" class="modal-requisitos-componentes">
+    <div class="modal-content-componentes">
+        <div class="modal-header-componentes">
+            <h2 id="modalTitulo" class="modal-title-componentes"></h2>
+            <button class="btn-cerrar-componentes" onclick="cerrarModal()">✕</button>
+        </div>
+        <div class="modal-body-componentes" id="modalContenido">
+            <!-- El contenido se cargará dinámicamente -->
+        </div>
+    </div>
+</div>      
+
+<!-- Animación de descarga PDF -->
+<div id="pdfDownloadAnimation" class="pdf-download-animation">
+    <div class="pdf-icon-animated">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17h6M9 13h6M9 9h3"></path>
+        </svg>
+    </div>
+</div>
+
+</section>
+<!-- NUEVA SECCIÓN: Documentos y Formularios -->
+<section id="documentos-formularios" class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <!-- Icono decorativo de libro abierto -->
+    <div class="absolute top-4 left-4 md:top-6 md:left-6 z-0">
+        <svg class="w-10 h-10 md:w-12 md:h-12 text-gray-600" style="opacity: 0.22;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 1L14 6V17L19 12.5V1M21 5V18.5C19.9 18.15 18.7 18 17.5 18C15.8 18 13.35 18.65 12 19.5V6C10.55 4.9 8.45 4.5 6.5 4.5C4.55 4.5 2.45 4.9 1 6V20.65C1 20.9 1.25 21.15 1.5 21.15C1.6 21.15 1.65 21.1 1.75 21.1C3.1 20.45 5.05 20 6.5 20C8.45 20 10.55 20.4 12 21.5C13.35 20.65 15.8 20 17.5 20C19.15 20 20.85 20.3 22.25 21.05C22.35 21.1 22.4 21.1 22.5 21.1C22.75 21.1 23 20.85 23 20.6V6C22.4 5.55 21.75 5.25 21 5M10 18.41C8.75 18.09 7.5 18 6.5 18C5.44 18 4.18 18.19 3 18.5V7.13C3.91 6.73 5.14 6.5 6.5 6.5C7.86 6.5 9.09 6.73 10 7.13V18.41Z" />
+        </svg>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Documentos y Formularios</h2>
+            <p class="mt-4 text-lg leading-8 text-gray-600">Plantillas editables y modelos de solicitud</p>
+        </div>     
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Documentos Editables -->
+            <div class="bg-blue-200/30 border border-blue-400 backdrop-blur-sm rounded-xl p-4 md:p-6 card-float-glow hover-glow-blue">
+                <button id="docs-editables-toggle" class="w-full text-base md:text-lg font-bold text-blue-900 mb-4 flex items-center justify-between text-left md:pointer-events-none">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        Documentos Editables
+                    </span>
+                    <svg id="docs-editables-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-200 md:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <div id="docs-editables-content" class="space-y-2 md:space-y-3 hidden md:block">
+                    <a href="https://dal5.short.gy/3st" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-blue-700">Estudio de Seguridad</span>
+                    </a>
+                    <a href="https://d6.short.gy/Pl4n" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-blue-700">Planes de Seguridad</span>
+                    </a>
+                    <a href="https://dal5.short.gy/M3" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-blue-700">Medidas de Seguridad</span>
+                    </a>
+                    <a href="https://dal5.short.gy/H23wIF" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-blue-100 hover:shadow-md transition-all border border-blue-300 hover:-translate-y-1 active:bg-blue-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-blue-700">Solicitud Simple</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Modelos de Solicitud -->
+            <div class="bg-green-200/30 border border-green-400 backdrop-blur-sm rounded-xl p-4 md:p-6 card-float-glow hover-glow-green">
+                <button id="modelos-solicitud-toggle" class="w-full text-base md:text-lg font-bold text-green-900 mb-4 flex items-center justify-between text-left md:pointer-events-none">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Modelos de Solicitud
+                    </span>
+                    <svg id="modelos-solicitud-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-200 md:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <div id="modelos-solicitud-content" class="space-y-2 md:space-y-3 scroll-container hidden md:block" style="max-height: 250px;">
+                    <a href="https://www.zosepcar.cl/content/OS10/MOD_dec_jurada_pers_naturales.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-green-700">Declaración Jurada P. Natural</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/MOD_dec_jurada_empresas.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-green-700">Declaración Jurada Empresas</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/MOD_solicitud_simple_acreditacion_empresa.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-green-700">Acreditación de Empresa</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/MOD_sol_acreditacion_asesor.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-green-700">Acreditación Asesor</span>
+                    </a>
+                     <a href="https://www.zosepcar.cl/content/OS10/MOD_solicitud_pers_natural_dependiente.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-green-700">Solic. Pers. Natural Dep.</span>
+                    </a>
+                     <a href="https://www.zosepcar.cl/content/OS10/MOD_acreditacion_capacitador.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-green-100 hover:shadow-md transition-all border border-green-300 hover:-translate-y-1 active:bg-green-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-green-700">Acred. Capacitador</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Manuales -->
+            <div class="bg-yellow-200/30 border border-yellow-400 backdrop-blur-sm rounded-xl p-4 md:p-6 card-float-glow hover-glow-yellow">
+                <button id="manuales-toggle" class="w-full text-base md:text-lg font-bold text-yellow-900 mb-4 flex items-center justify-between text-left md:pointer-events-none">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        Manuales
+                    </span>
+                    <svg id="manuales-arrow" class="w-5 h-5 text-gray-600 transition-transform duration-200 md:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <div id="manuales-content" class="space-y-2 md:space-y-3 hidden md:block">
+                    <a href="https://www.zosepcar.cl/content/OS10/manual_funcionamiento.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-yellow-700">Manual de Funcionamiento</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/manual_capacitacion.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-yellow-700">Manual de Capacitación</span>
+                    </a>
+                    <a href="https://www.zosepcar.cl/content/OS10/manual_organizacion.pdf" target="_blank" 
+                       class="block bg-white px-3 md:px-4 py-2 rounded-lg hover:bg-yellow-100 hover:shadow-md transition-all border border-yellow-300 hover:-translate-y-1 active:bg-yellow-200 active:-translate-y-0.5">
+                        <span class="text-xs md:text-sm font-medium text-yellow-700">Manual de Organización</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- NUEVA SECCIÓN: Capacitación -->
+        <section id="capacitacion" class="py-16 md:py-24 bg-gradient-to-br from-[#146314] to-[#0c640c] text-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Capacitación y Formación</h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-200">Información sobre cursos, empresas capacitadoras y valores</p>
+                </div>
+                <div class="carousel-container carousel-desktop-grid"> 
+                   <a href="https://drive.google.com/file/d/1RsYHWNpeNAmhTIO1kXOscZbia7Yepktp/view" target="_blank" 
+                class="carousel-card group bg-white/10 backdrop-blur rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-all transform hover:-translate-y-1">
+                <div class="text-center">
+                    <!-- MODIFICADO: Añadidas clases flex para centrar el ícono -->
+                    <div class="bg-white/20 rounded-full p-3 md:p-4 w-20 h-20 md:w-16 md:h-16 mx-auto mb-2 md:mb-4 group-hover:bg-white/30 flex items-center justify-center">
+                        <svg class="w-12 h-12 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-lg">Empresas de Capacitación</h3>
+                    <p class="text-xs md:text-sm text-gray-200 mt-1 md:mt-2">Listado actualizado</p>
+                </div>
+            </a>
+<a href="https://drive.google.com/file/d/1hpZrzhXCnGyLkFLRhj0FOY_zDwTEUIaN/view" target="_blank" 
+   class="carousel-card group bg-white/10 backdrop-blur rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-all transform hover:-translate-y-1">
+    <div class="text-center">
+        <!-- MODIFICADO: Añadidas clases flex para centrar el ícono -->
+        <div class="bg-white/20 rounded-full p-3 md:p-4 w-20 h-20 md:w-16 md:h-16 mx-auto mb-2 md:mb-4 group-hover:bg-white/30 flex items-center justify-center">
+            <svg class="w-12 h-12 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+        </div>
+        <h3 class="font-semibold text-sm md:text-lg">Capacitadores</h3>
+        <p class="text-xs md:text-sm text-gray-200 mt-1 md:mt-2">Personal autorizado</p>
+    </div>
+</a>
+<a href="https://drive.google.com/file/d/1swqlfBX5-7Ko-3u_H95pnGzbLkhUnrwy/view" target="_blank" 
+   class="carousel-card group bg-white/10 backdrop-blur rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-all transform hover:-translate-y-1">
+    <div class="text-center">
+        <!-- MODIFICADO: Añadidas clases flex y corregido md:h-16 -->
+        <div class="bg-white/20 rounded-full p-3 md:p-4 w-20 h-20 md:w-16 md:h-16 mx-auto mb-2 md:mb-4 group-hover:bg-white/30 flex items-center justify-center">
+            <svg class="w-12 h-12 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </div>
+        <h3 class="font-semibold text-sm md:text-lg">Curso Formación</h3>
+        <p class="text-xs md:text-sm text-gray-200 mt-1 md:mt-2">Valores vigentes</p>
+    </div>
+</a>
+<a href="https://drive.google.com/file/d/1q2qS2AQUgoma8TmOppO9IOV1LX4PJS9Z/view" target="_blank" 
+   class="carousel-card group bg-white/10 backdrop-blur rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-all transform hover:-translate-y-1">
+    <div class="text-center">
+        <!-- MODIFICADO: Añadidas clases flex para centrar el ícono -->
+        <div class="bg-white/20 rounded-full p-3 md:p-4 w-20 h-20 md:w-16 md:h-16 mx-auto mb-2 md:mb-4 group-hover:bg-white/30 flex items-center justify-center">
+            <svg class="w-12 h-12 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+        </div>
+        <h3 class="font-semibold text-sm md:text-lg">Perfeccionamiento</h3>
+        <p class="text-xs md:text-sm text-gray-200 mt-1 md:mt-2">Valores actualizados</p>
+    </div>
+</a>
+<a href="https://dal5.short.gy/4S3" target="_blank" 
+   class="carousel-card group bg-white/10 backdrop-blur rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-all transform hover:-translate-y-1">
+    <div class="text-center">
+        <div class="bg-white/20 rounded-full p-3 md:p-4 w-20 h-20 md:w-16 md:h-16 mx-auto mb-2 md:mb-4 group-hover:bg-white/30 flex items-center justify-center">
+            <svg class="w-12 h-12 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+        </div>
+        <h3 class="font-semibold text-sm md:text-lg">Asesores</h3>
+        <p class="text-xs md:text-sm text-gray-200 mt-1 md:mt-2">Información de asesores</p>
+    </div>
+</a>
+                </div>
+                <div class="pagination-dots"></div>
+            </div>
+        </section>
+        <!-- NUEVA SECCIÓN: Servicios Adicionales -->
+        <section id="servicios-adicionales" class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Servicios Adicionales</h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-600">Herramientas y recursos complementarios</p>
+                </div>
+                <div class="carousel-container carousel-desktop-grid">
+                    <!-- Consultar Curso -->
+                    <a href="https://www.zosepcar.cl/OS10.php#buscador" target="_blank" 
+                       class="carousel-card group relative overflow-hidden rounded-xl p-6 md:p-8 bg-blue-600/30 border border-blue-400 backdrop-blur-sm card-float-glow hover-glow-blue">
+                        <svg class="w-12 h-12 md:w-12 md:h-12 mb-3 md:mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-lg md:text-xl font-bold text-blue-900">Consultar Curso</h3>
+                        <p class="text-xs md:text-sm mt-2 text-blue-700">Verificar estado de certificaciones</p>
+                    </a>   
+                    <!-- Valores -->
+                    <div onclick="handleValores()" 
+                         class="carousel-card cursor-pointer group relative overflow-hidden rounded-xl p-6 md:p-8 bg-green-600/30 border border-green-400 backdrop-blur-sm card-float-glow hover-glow-green">
+                        <svg class="w-12 h-12 md:w-12 md:h-12 mb-3 md:mb-4 text-green-600" 
+                             xmlns="http://www.w3.org/2000/svg" 
+                             viewBox="0 0 24 24" 
+                             fill="currentColor">
+                            <path d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 0 1-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004ZM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 0 1-.921.42Z" />
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v.816a3.836 3.836 0 0 0-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 0 1-.921-.421l-.879-.66a.75.75 0 0 0-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 0 0 1.5 0v-.81a4.124 4.124 0 0 0 1.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 0 0-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 0 0 .933-1.175l-.415-.33a3.836 3.836 0 0 0-1.719-.755V6Z" clip-rule="evenodd" />
+                        </svg>
+                        <h3 class="text-lg md:text-xl font-bold text-green-900">Valores</h3>
+                        <p class="text-xs md:text-sm mt-2 text-green-700">Tabla de valores y aranceles</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/QUhujWbTF1FjDA7E6" target="_blank" 
+                       class="carousel-card group relative overflow-hidden rounded-xl p-6 md:p-8 bg-yellow-600/30 border border-yellow-400 backdrop-blur-sm card-float-glow hover-glow-yellow">
+                        <svg class="w-12 h-12 md:w-12 md:h-12 mb-3 md:mb-4 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h3 class="text-lg md:text-xl font-bold text-yellow-900">Ubicación</h3>
+                        <p class="text-xs md:text-sm mt-2 text-yellow-700">Calle Cienfuegos 180, La Serena</p>
+                    </a>
+                </div>
+                <div class="pagination-dots"></div>
+            </div>
+        </section>
+        <!-- ***** FIN DE LAS NUEVAS SECCIONES ***** -->
+        <section id="nuestra-labor" class="py-8 md:py-12 bg-white">
+            <div class="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Nuestra Labor</h2>
+                    <p class="mt-4 text-lg leading-8 text-gray-600">Comprometidos con la fiscalización y el control de la seguridad privada en la región.</p><br>
+                </div>
+                   <div class="text-center">
+                    <div class="flex items-center justify-center space-x-2">
+                     <iframe width="560" height="315" src="https://www.youtube.com/embed/M_epPITSCSw?si=W2xBOL_F0pn_sw2j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+                    </div>
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="elegant-card">
+                        <div>
+                            <h4 class="text-2xl font-semibold text-gray-900">Misión</h4>
+                            <p class="mt-2 text-xs sm:text-sm leading-relaxed text-gray-600 text-justify">El OS10 Coquimbo ejerce la fiscalización, control y supervisión de las personas naturales y jurídicas que desarrollan actividades de vigilancia y seguridad privada en el territorio de la Región de Coquimbo, en conformidad con las disposiciones legales vigentes que se encomienda a Carabineros de Chile. Nuestra responsabilidad abarca la autorización, capacitación, certificación y acreditación de los actores del sistema de seguridad privada, así como la aprobación de estudios de seguridad, planes de seguridad, medidas de seguridad y directivas de funcionamiento, con el objetivo fundamental de contribuir eficazmente a la seguridad pública mediante la prevención de hechos delictuales y la protección de personas y bienes.</p>
+                        </div>
+                    </div>
+                    <div class="elegant-card">
+                        <div>
+                            <h4 class="text-2xl font-semibold text-gray-900">Visión</h4>
+                            <p class="mt-2 text-xs sm:text-sm leading-relaxed text-gray-600 text-justify">Consolidarnos como un organismo especializado de excelencia en la gestión, fiscalización y control de la seguridad privada a nivel nacional, ser reconocidos por nuestro profesionalismo, eficiencia y compromiso con la legalidad. Aspiramos a ser un referente técnico que, mediante una estructura organizacional sólida, procesos estandarizados y el uso de inteligencia artificial avanzada, brinde atención rápida y de calidad en materias de seguridad privada, promoviendo el desarrollo de un sistema íntegro y competente que contribuya significativamente al fortalecimiento de la seguridad pública en la Región de Coquimbo y sirva como modelo tecnológico e innovador para otras oficinas similares a nivel nacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="main-footer" class="bg-[#146314] backdrop-blur-sm text-gray-300">
+        <div class="max-w-7xl mx-auto py-8 px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center md:justify-items-start">
+                <div class="text-center md:text-left"><h3 class="text-lg font-semibold text-white">O.S.10 Coquimbo</h3><p class="mt-2 text-sm">Prefectura de Coquimbo.</p></div>
+                <div><h3 class="text-lg font-semibold text-white">Contacto</h3><ul class="mt-4 space-y-2 text-sm"><li><a href="tel:+56512651024" class="hover:text-white">+56 51 265 1024</a></li><li><a href="mailto:os10.coquimbo@carabineros.cl" class="hover:text-white">os10.coquimbo@carabineros.cl</a></li><li><a href="mailto:os10coquimbo@gmail.com" class="hover:text-white">os10coquimbo@gmail.com</a></li></ul></div>
+            </div>
+        </div>
+        <div class="w-full mt-8 border-t border-gray-700 pt-8 pb-8 text-center text-sm px-6">
+            <p>© 2026 Prefectura de Coquimbo, O.S.10. Todos los derechos reservados.</p>
+            <p class="mt-1">Plataforma desarrollada por Daniel Figueroa Ch. Ingeniero en Informática & Ciberseguridad.</p>
+        </div>
+    </footer>
+    <div id="chat-widget-container">
+        <div id="chat-popup" class="chat-popup-hidden flex flex-col bg-white/95 backdrop-blur-lg border border-green-500/50 rounded-2xl">
+            <header class="p-3 border-b border-green-500/30 flex items-center justify-between text-gray-800">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-white border-2 border-green-400/80 flex items-center justify-center flex-shrink-0 p-1"><img src="assets/images/poli.webp" alt="Bot Icon" class="h-full w-full object-contain" width="40" height="40" loading="lazy"></div>
+                    <div><h1 class="text-base font-bold">Asistente</h1><p class="text-xs text-gray-500">O.S.10 Coquimbo.👍✅</p></div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <select id="voiceSelector" class="voice-selector text-xs"><option value="Diego">Diego</option><option value="Antoni">Antoni</option><option value="Josh">Josh</option><option value="Adam">Adam</option><option value="Alejandro" selected>Alejandro</option></select>
+                    <button id="speak-btn" class="voice-button bg-green-500 hover:bg-green-600 rounded-lg p-2 text-white" title="Leer último mensaje"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg></button>
+                    <button id="chat-close-btn-internal" class="text-gray-500 hover:text-gray-800"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </div>
+            </header>
+            <main id="chat-messages" class="chat-messages-container flex-1 p-4 overflow-y-auto"></main>
+            <footer class="p-3 border-t border-green-500/30">
+                <div class="mb-2 text-xs text-center text-gray-500"><span>Alt+V para micrófono</span></div>
+                <div class="flex items-center space-x-2 bg-gray-200 rounded-xl p-2">
+                    <button id="toggle-speak-btn" class="voice-button bg-yellow-500 hover:bg-yellow-600 rounded-lg p-2 text-white" title="Activar/Desactivar Auto-lectura"><svg id="speaker-on-icon" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"></path></svg><svg id="speaker-off-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"></path></svg></button>
+                    <button id="voice-btn" class="voice-button bg-blue-500 hover:bg-blue-600 rounded-lg p-2 text-white" title="Hablar"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="23"></line><line x1="8" x2="16" y1="23" y2="23"></line></svg></button>
+                    <input type="text" id="user-input" placeholder="Escribe o usa el micrófono..." class="flex-1 w-full bg-transparent text-gray-800 placeholder-gray-500 focus:outline-none px-2 text-base">
+                    <button id="send-button" class="flex-shrink-0 bg-green-500 hover:bg-green-600 transition-colors rounded-lg p-2 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                </div>
+            </footer>
+        </div>
+        <button id="chat-toggle-button" class="bg-white rounded-2xl flex items-center justify-center p-1 mt-4" title="Abrir Asistente Virtual con Voces Modernas">
+            <span id="chatbot-tooltip" class="absolute hidden bg-white text-gray-800 text-sm font-bold px-3 py-2 rounded-lg shadow-lg">Abrir Chatbot</span>
+            <img src="assets/images/poli.webp" alt="Chatbot Icon" class="h-full w-full object-contain" width="80" height="80" loading="lazy">
+        </button>
+    </div>
+
+   <!-- Chevron para scroll hacia arriba -->
+<button id="scroll-up-chevron" class="fixed z-50 cursor-pointer transition-all opacity-0 pointer-events-none" style="bottom: 2.5rem; right: 1.9rem;" title="Subir">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-10 h-10 text-green-600 drop-shadow-lg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5" />
+        </svg>
+    </button>
+    <div id="chat-backdrop" class="hidden fixed inset-0 bg-black/60 z-40"></div>
+    <button id="back-to-top" class="hidden fixed bottom-5 right-5"></button>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/carousel.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+    <script src="assets/js/verificacion.js" defer></script>
+    <script src="assets/js/credenciales.js" defer></script>
+    <script src="assets/js/core.js" defer></script>
+    <script src="assets/js/ui-components.js" defer></script>
+    <script src="assets/js/spd-componentes.js" defer></script>
+    
+    <!-- Script para auto-scroll del carrusel de Componentes del Sistema -->
+
+    
+    <script src="assets/js/main.js" defer></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, doc, runTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        const firebaseConfig = { apiKey: "AIzaSyBB2AegLOQ-b6ZGI_cuPycSFJFuRsUlu5U", authDomain: "cuenta-946e2.firebaseapp.com", projectId: "cuenta-946e2", storageBucket: "cuenta-946e2.firebasestorage.app", messagingSenderId: "816979648502", appId: "1:816979648502:web:809beffeea8ba7968031d7", measurementId: "G-RX9KZSC0F4" };
+        async function runCounter() {
+            const counterSpan = document.getElementById('visit-counter');
+            try {
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const auth = getAuth(app);
+                await signInAnonymously(auth);
+                const counterRef = doc(db, `page-visits/${firebaseConfig.projectId}/visits/counter`);
+                const newCount = await runTransaction(db, async (transaction) => {
+                    const counterDoc = await transaction.get(counterRef);
+                    let count = 1;
+                    if (counterDoc.exists()) { count = counterDoc.data().count + 1; transaction.update(counterRef, { count: count }); } else { transaction.set(counterRef, { count: count }); }
+                    return count;
+                });
+                if (counterSpan) counterSpan.textContent = newCount.toLocaleString('es-CL');
+            } catch (error) {
+                console.error("ERROR: Counter process failed.", error);
+                if (counterSpan) counterSpan.textContent = "Error";
+            }
+        }
+        runCounter();
+    </script>
+    <script src="./rules/chatbot-rules.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(reg => console.log('✅ SW registered'), err => console.error('❌ SW registration failed', err));
+            });
+        }
+    </script>
+    
+
+    
+    <script>
+        function handleSPD() { window.location.href = 'spd.html'; }
+    </script>
+    
+    <!-- Funciones para menú hamburguesa y búsqueda móvil -->
+    <!-- NOTA: Código de menú móvil movido a main.js para evitar duplicación y conflictos -->
+    <!--
+    <script>
+        // Función para toggle del menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileDropdown = document.getElementById('mobile-dropdown');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileDropdown.classList.toggle('hidden');
+                    mobileMenuOverlay.classList.toggle('hidden');
+                    document.body.classList.toggle('overflow-hidden');
+                });
+            }
+            
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', function() {
+                    mobileDropdown.classList.add('hidden');
+                    mobileMenuOverlay.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            }
+            
+            // Manejar submenús en móvil
+            const submenuParents = document.querySelectorAll('.has-submenu .submenu-parent-btn');
+            submenuParents.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const parent = this.closest('.has-submenu');
+                    const submenu = parent.querySelector('.submenu');
+                    const arrow = this.querySelector('.submenu-arrow');
+                    
+                    // Toggle submenu
+                    submenu.classList.toggle('hidden');
+                    if (arrow) {
+                        arrow.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(90deg)';
+                    }
+                });
+            });
+        });
+    </script>
+    -->
+    
+    <!-- Biblioteca para generar PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="assets/js/spd-componentes.js?v=2"></script>
+    
+
+</body>
+    </html>
