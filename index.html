@@ -2689,53 +2689,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function handleSPD() { window.location.href = 'spd.html'; }
     </script>
     
-    <!-- Funciones para menú hamburguesa y búsqueda móvil -->
-    <!-- NOTA: Código de menú móvil movido a main.js para evitar duplicación y conflictos -->
-    <!--
-    <script>
-        // Función para toggle del menú móvil
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileDropdown = document.getElementById('mobile-dropdown');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileDropdown.classList.toggle('hidden');
-                    mobileMenuOverlay.classList.toggle('hidden');
-                    document.body.classList.toggle('overflow-hidden');
-                });
-            }
-            
-            if (mobileMenuOverlay) {
-                mobileMenuOverlay.addEventListener('click', function() {
-                    mobileDropdown.classList.add('hidden');
-                    mobileMenuOverlay.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                });
-            }
-            
-            // Manejar submenús en móvil
-            const submenuParents = document.querySelectorAll('.has-submenu .submenu-parent-btn');
-            submenuParents.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const parent = this.closest('.has-submenu');
-                    const submenu = parent.querySelector('.submenu');
-                    const arrow = this.querySelector('.submenu-arrow');
-                    
-                    // Toggle submenu
-                    submenu.classList.toggle('hidden');
-                    if (arrow) {
-                        arrow.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(90deg)';
-                    }
-                });
-            });
-        });
-    </script>
-    -->
-    
-    <!-- Biblioteca para generar PDFs -->
+   <!-- Biblioteca para generar PDFs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="assets/js/spd-componentes.js?v=2"></script>
     
